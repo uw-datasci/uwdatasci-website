@@ -273,7 +273,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -284,7 +284,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
     ],
@@ -300,7 +300,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -311,7 +311,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -322,7 +322,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -333,7 +333,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -344,7 +344,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
     ],
@@ -360,7 +360,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -371,7 +371,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -382,7 +382,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -393,7 +393,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -404,7 +404,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
     ],
@@ -420,7 +420,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -431,7 +431,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -442,7 +442,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -453,7 +453,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -464,7 +464,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
       {
@@ -475,7 +475,7 @@ export const TEAM = [
           { type: 'instagram', link: 'https://youtube.com' },
           { type: 'linkedin', link: 'https://youtube.com' },
           { type: 'email', link: 'https://youtube.com' },
-          { type: 'personal website', link: 'https://youtube.com' },
+          { type: 'website', link: 'https://youtube.com' },
         ],
       },
     ],
