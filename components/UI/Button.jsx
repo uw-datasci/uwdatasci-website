@@ -18,8 +18,8 @@ export default function Button({
       onClick={onClick}
       className={`relative cursor-pointer ${bg} ${border} ${px} ${py} ${classes}`}
     >
-      <p className={font}>{children}</p>
       {icon ? <Image src={icon} alt={iconAlt} className={iconClasses} /> : null}
+      <p className={font}>{children}</p>
     </div>
   );
 }
