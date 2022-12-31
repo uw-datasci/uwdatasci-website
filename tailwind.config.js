@@ -33,6 +33,7 @@ module.exports = {
       '7xl': ['48px', '65px'],
       '8xl': ['56px', '76px'],
       '9xl': ['64px', '86px'],
+      '10xl': ['72px', '98px'],
     },
     screens: {
       '3xs': '300px',

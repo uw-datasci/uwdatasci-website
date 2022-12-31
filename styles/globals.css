@@ -35,6 +35,10 @@
     @apply bg-gradient-to-br from-white to-lighterPurple;
   }
 
+  .h1 {
+    @apply black-to-purple dark:white-to-light-purple gradient-text text-7xl font-bold sm:text-8xl xl:text-9xl;
+  }
+
   .h2 {
     @apply black-to-purple dark:white-to-light-purple gradient-text text-4xl font-bold md:text-5xl xl:text-6xl;
   }

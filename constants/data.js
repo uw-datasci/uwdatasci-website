@@ -202,3 +202,36 @@ export const RESOURCES = [
     iconDark: micIcon,
   },
 ];
+
+export const RECORDINGS = [
+  {
+    title: 'SQL Workshop',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: 'https://www.youtube.com/watch?v=IDTZm9b4yHU',
+  },
+  {
+    title: 'SQL Workshop',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: 'https://www.youtube.com/watch?v=IDTZm9b4yHU',
+  },
+  {
+    title: 'SQL Workshop',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: 'https://www.youtube.com/watch?v=IDTZm9b4yHU',
+  },
+  {
+    title: 'SQL Workshop',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: 'https://www.youtube.com/watch?v=IDTZm9b4yHU',
+  },
+  {
+    title: 'SQL Workshop',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: 'https://www.youtube.com/watch?v=IDTZm9b4yHU',
+  },
+];

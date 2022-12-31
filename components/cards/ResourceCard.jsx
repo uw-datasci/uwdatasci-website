@@ -16,7 +16,7 @@ export default function ResourceCard({
   return (
     <Card
       borderRadius="rounded-2xl md:rounded-4xl"
-      classes="w-[300px] md:w-[380px] overflow-hidden relative"
+      classes="w-[300px] md:w-[380px] relative"
     >
       <Image
         src={themeContext.theme === 'light' ? iconLight : iconDark}
