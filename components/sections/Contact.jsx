@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import Image from 'next/image';
-import handleSubmit from '../../utils/form-submission'
+import handleSubmit from '../../utils/form-submission';
 import Input from '../UI/Input';
 import GradientBorder from '../UI/GradientBorder';
 import Button from '../UI/Button';
@@ -57,9 +57,8 @@ export default function Contact() {
     validate,
     onSubmit: (values, actions) => {
       handleSubmit('contact', values);
-      actions.resetForm()
-      Router.push('/success')
-      alert(JSON.stringify(values, null, 2));
+      actions.resetForm();
+      Router.push('/success');
     },
   });
 
@@ -127,6 +126,7 @@ export default function Contact() {
               value={formik.values.name}
               placeholder="Name"
             />
+
             {formik.touched.name && formik.errors.name ? (
               <p className="mt-3 text-sm text-red lg:mt-4 lg:text-base">
                 {formik.errors.name}
@@ -145,6 +145,7 @@ export default function Contact() {
               value={formik.values.email}
               placeholder="Email"
             />
+
             {formik.touched.email && formik.errors.email ? (
               <p className="mt-3 text-sm text-red lg:mt-4 lg:text-base">
                 {formik.errors.email}
@@ -162,6 +163,7 @@ export default function Contact() {
               value={formik.values.message}
               placeholder="Message"
             />
+
             {formik.touched.message && formik.errors.message ? (
               <p className="mt-3 text-sm text-red lg:mt-4 lg:text-base">
                 {formik.errors.message}
