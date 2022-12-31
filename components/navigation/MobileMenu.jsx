@@ -41,6 +41,7 @@ export default function MobileMenu() {
                 href={menuItem.link}
                 key={menuItem.text}
                 className="block font-bold"
+                onClick={menuOpenContext.closeMenu}
               >
                 <span className="gradient-text dark:white-to-light-purple black-to-purple ">
                   {menuItem.text}
@@ -51,8 +52,11 @@ export default function MobileMenu() {
             return (
               <a
                 href={menuItem.link}
-                key={menuItem.text}
+                target="_blank"
+                rel="noreferrer"
+                onClick={menuOpenContext.closeMenu}
                 className="block font-bold"
+                key={menuItem.text}
               >
                 <span className="gradient-text dark:white-to-light-purple black-to-purple">
                   {menuItem.text}
