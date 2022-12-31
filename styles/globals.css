@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 @layer components {
   .m-horizontal {
     @apply mx-5 xs:mx-7 sm:mx-9 xl:mx-16 3xl:mx-auto 3xl:max-w-[1280px];
@@ -36,11 +40,11 @@
   }
 
   .h1 {
-    @apply black-to-purple dark:white-to-light-purple gradient-text text-7xl font-bold sm:text-8xl xl:text-9xl;
+    @apply black-to-purple dark:white-to-light-purple gradient-text text-7xl font-bold sm:text-8xl 2xl:text-9xl;
   }
 
   .h2 {
-    @apply black-to-purple dark:white-to-light-purple gradient-text text-4xl font-bold md:text-5xl xl:text-6xl;
+    @apply black-to-purple dark:white-to-light-purple gradient-text text-4xl font-bold md:text-5xl xl:text-6xl 2xl:text-7xl;
   }
 
   .filter-purple {
