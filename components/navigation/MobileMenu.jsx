@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import MenuOpenContext from '../../store/menu-open-context';
 import GradientBorder from '../UI/GradientBorder';
+import Button from '../UI/Button';
 import { MENU } from '../../constants/menu';
 
 export default function MobileMenu() {
@@ -21,13 +22,15 @@ export default function MobileMenu() {
         classes="self-end"
         onClick={menuOpenContext.closeMenu}
       >
-        <div className="white-to-lighter-purple dark:black-to-dark-purple rounded-full px-6 py-3">
-          <p className="text-base font-medium">
-            <span className="gradient-text black-to-purple dark:white-to-light-purple">
-              Close
-            </span>
-          </p>
-        </div>
+        <Button
+          bg="white-to-lighter-purple dark:black-to-dark-purple"
+          border="rounded-full"
+          px="px-6"
+          py="py-3"
+          font="font-medium gradient-text black-to-purple dark:white-to-light-purple"
+        >
+          Close
+        </Button>
       </GradientBorder>
 
       <div className="absolute top-1/2 flex w-full -translate-y-1/2 flex-col gap-7 text-5xl">
@@ -37,9 +40,11 @@ export default function MobileMenu() {
               <Link
                 href={menuItem.link}
                 key={menuItem.text}
-                className="gradient-text dark:white-to-light-purple black-to-purple block font-bold"
+                className="block font-bold"
               >
-                {menuItem.text}
+                <span className="gradient-text dark:white-to-light-purple black-to-purple ">
+                  {menuItem.text}
+                </span>
               </Link>
             );
           } else {
@@ -47,9 +52,11 @@ export default function MobileMenu() {
               <a
                 href={menuItem.link}
                 key={menuItem.text}
-                className="gradient-text dark:white-to-light-purple black-to-purple font-bold"
+                className="block font-bold"
               >
-                {menuItem.text}
+                <span className="gradient-text dark:white-to-light-purple black-to-purple">
+                  {menuItem.text}
+                </span>
               </a>
             );
           }

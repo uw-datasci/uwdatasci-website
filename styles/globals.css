@@ -8,7 +8,7 @@
   }
 
   .section {
-    @apply mb-25;
+    @apply mb-25 last:mb-0 md:mb-40 md:last:mb-40;
   }
 
   .transition-300 {
@@ -24,7 +24,7 @@
   }
 
   .black-to-dark-purple {
-    @apply bg-gradient-to-br from-darkPurple to-darkPurple;
+    @apply bg-gradient-to-br from-black to-darkPurple;
   }
 
   .black-to-purple {
@@ -33,5 +33,9 @@
 
   .white-to-lighter-purple {
     @apply bg-gradient-to-br from-white to-lighterPurple;
+  }
+
+  .wave-filter {
+    filter: invert(91%) sepia(10%) saturate(1153%) hue-rotate(191deg) brightness(102%) contrast(105%);
   }
 }

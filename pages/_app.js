@@ -3,6 +3,7 @@ import { MenuOpenContextProvider } from '../store/menu-open-context';
 import Header from '../components/navigation/Header';
 import MobileMenu from '../components/navigation/MobileMenu';
 import '../styles/globals.css';
+import Wave from '../components/other/Wave';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -10,7 +11,10 @@ export default function App({ Component, pageProps }) {
       <MenuOpenContextProvider>
         <Header />
         <MobileMenu />
-        <Component {...pageProps} />
+        <Wave />
+        <div className="pt-44 md:pt-56">
+          <Component {...pageProps} />
+        </div>
       </MenuOpenContextProvider>
     </ThemeContextProvider>
   );
