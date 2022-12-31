@@ -15,7 +15,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="transition-300 relative m-0 overflow-x-hidden bg-white p-0 dark:bg-black">
+      <body className="relative m-0 overflow-x-hidden bg-white p-0 dark:bg-black">
         <Main />
         <NextScript />
       </body>

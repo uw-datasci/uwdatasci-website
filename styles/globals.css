@@ -4,11 +4,11 @@
 
 @layer components {
   .m-horizontal {
-    @apply mx-3 3xs:mx-5 xs:mx-7 sm:mx-9 xl:mx-16 3xl:mx-auto 3xl:max-w-[1280px];
+    @apply mx-5 xs:mx-7 sm:mx-9 xl:mx-16 3xl:mx-auto 3xl:max-w-[1280px];
   }
 
   .section {
-    @apply mb-25 last:mb-0 md:mb-40 md:last:mb-40;
+    @apply mb-25 last:mb-0 md:mb-40 md:last:mb-0;
   }
 
   .transition-300 {
@@ -35,7 +35,26 @@
     @apply bg-gradient-to-br from-white to-lighterPurple;
   }
 
-  .wave-filter {
-    filter: invert(91%) sepia(10%) saturate(1153%) hue-rotate(191deg) brightness(102%) contrast(105%);
+  .h2 {
+    @apply black-to-purple dark:white-to-light-purple gradient-text text-4xl font-bold md:text-5xl xl:text-6xl;
+  }
+
+  .filter-purple {
+    filter: invert(24%) sepia(12%) saturate(2200%) hue-rotate(213deg)
+      brightness(94%) contrast(87%);
+  }
+
+  .filter-light-purple {
+    filter: invert(76%) sepia(18%) saturate(539%) hue-rotate(200deg)
+      brightness(95%) contrast(91%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
