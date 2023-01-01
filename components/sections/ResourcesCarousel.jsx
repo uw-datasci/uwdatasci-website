@@ -1,16 +1,28 @@
+import { useContext, useEffect, useState } from 'react';
+import FirebaseContext from '../../store/firebase-context';
 import Carousel from '../UI/Carousel';
 import ResourceCard from '../cards/ResourceCard';
-import { RESOURCES } from '../../constants/data';
 
 export default function ResourcesCarousel({ showTitle }) {
+  const firebaseContext = useContext(FirebaseContext);
+
+  const [resources, setResources] = useState([]);
+
+  useEffect(() => {
+    if (firebaseContext.resources.length > 0) {
+      setResources(firebaseContext.resources);
+    }
+  }, [firebaseContext.resources]);
+
   return (
     <section className="section">
       <Carousel title={showTitle ? 'Resources' : ''} gap="mr-6 lg:mr-8">
-        {RESOURCES.map((resource) => (
+        {resources.map((resource) => (
           <ResourceCard
             title={resource.title}
             description={resource.description}
-            buttons={resource.buttons}
+            button={resource.button}
+            link={resource.link}
             icon={resource.icon}
             key={resource.title}
           />

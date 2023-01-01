@@ -32,7 +32,7 @@ export default function MailingList() {
   return (
     <Banner>
       <div className="xl:flex xl:items-center xl:justify-between xl:gap-28">
-        <div className="max-w-[600px]">
+        <div className="xl:max-w-[600px]">
           <h2 className="mb-3 xl:mb-6">
             <span className="h2">Join Our Mailing List</span>
           </h2>
