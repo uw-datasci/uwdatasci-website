@@ -70,7 +70,7 @@ export default function Contact() {
       <div className="m-horizontal grid gap-9 pt-9 pb-16 md:grid-cols-2 md:pt-20 md:pb-25 xl:gap-20 xl:pb-32">
         <div>
           <h2 className="mb-3 md:mb-6">
-            <span className="h2">Contact Us</span>
+            <span className="h2 xl:text-7xl">Contact Us</span>
           </h2>
 
           <p className="mb-9 leading-relaxed text-purple dark:text-lightPurple md:mb-16 2xl:text-lg 2xl:leading-relaxed">

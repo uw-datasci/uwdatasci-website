@@ -1,6 +1,7 @@
 import ResourcesCarousel from '../components/sections/ResourcesCarousel';
 import Podcast from '../components/sections/Podcast';
 import RecordingsCarousel from '../components/sections/RecordingsCarousel';
+import Footer from '../components/navigation/Footer;';
 
 export default function Resources() {
   return (
@@ -11,6 +12,7 @@ export default function Resources() {
       <ResourcesCarousel />
       <Podcast />
       <RecordingsCarousel />
+      <Footer />
     </>
   );
 }

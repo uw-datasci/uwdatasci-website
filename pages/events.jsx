@@ -1,5 +1,6 @@
 import EventsCarousel from '../components/sections/EventsCarousel';
 import RecordingsCarousel from '../components/sections/RecordingsCarousel';
+import Footer from '../components/navigation/Footer';
 
 export default function Events() {
   return (
@@ -9,6 +10,7 @@ export default function Events() {
       </h1>
       <EventsCarousel showTitle={false} />
       <RecordingsCarousel />
+      <Footer />
     </>
   );
 }

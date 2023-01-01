@@ -11,7 +11,7 @@ export default function Header() {
   const menuOpenContext = useContext(MenuOpenContext);
 
   return (
-    <header className="fixed z-40 mt-9 flex w-full items-center justify-between bg-white bg-opacity-20 py-3 px-5 backdrop-blur-md dark:bg-black dark:bg-opacity-20 3xs:px-5 xs:px-7 sm:px-9">
+    <header className="fixed z-40 mt-9 flex w-full items-center justify-between bg-white bg-opacity-20 py-3 px-5 backdrop-blur-md dark:bg-black dark:bg-opacity-20 xs:px-7 sm:px-9">
       <Logo />
 
       <div className="flex items-center gap-6 md:hidden">
