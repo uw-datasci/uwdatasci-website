@@ -11,8 +11,7 @@ export default function ResourcesCarousel({ showTitle }) {
             title={resource.title}
             description={resource.description}
             buttons={resource.buttons}
-            iconLight={resource.iconLight}
-            iconDark={resource.iconDark}
+            icon={resource.icon}
             key={resource.title}
           />
         ))}

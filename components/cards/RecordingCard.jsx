@@ -14,7 +14,7 @@ export default function RecordingCard({ title, description, link }) {
         )}`}
         title="Data Science Club Recordings"
         frameborder="0"
-        className="aspect-video w-full"
+        className="no-select-or-drag aspect-video w-full"
       />
       <div className="px-5 pt-3 pb-8 md:px-7 md:pt-4 md:pb-10">
         <h3 className="mb-2 text-2xl font-bold text-black dark:text-white md:mb-3 md:text-3xl">
@@ -30,7 +30,7 @@ export default function RecordingCard({ title, description, link }) {
           font="text-black dark:text-white"
           icon={externalLinkIcon}
           iconAlt="open link"
-          iconClasses="w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
+          iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
           classes="text-center"
           onClick={() => window.open(link, '_blank')}
         >

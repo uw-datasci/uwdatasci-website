@@ -99,7 +99,7 @@ export default function Contact() {
                 <Image
                   src={socialButton.icon}
                   alt={socialButton.text}
-                  className="filter-purple dark:filter-light-purple"
+                  className="no-select-or-drag filter-purple dark:filter-light-purple"
                 />
                 <p className="text-center text-black dark:text-white">
                   {socialButton.text}

@@ -90,8 +90,7 @@ export const RESOURCES = [
         icon: spotifyIcon,
       },
     ],
-    iconLight: micIcon,
-    iconDark: micIcon,
+    icon: micIcon,
   },
   {
     title: 'Podcast',
@@ -109,8 +108,7 @@ export const RESOURCES = [
         icon: spotifyIcon,
       },
     ],
-    iconLight: micIcon,
-    iconDark: micIcon,
+    icon: micIcon,
   },
   {
     title: 'Podcast',
@@ -128,8 +126,7 @@ export const RESOURCES = [
         icon: spotifyIcon,
       },
     ],
-    iconLight: micIcon,
-    iconDark: micIcon,
+    icon: micIcon,
   },
   {
     title: 'Podcast',
@@ -147,8 +144,7 @@ export const RESOURCES = [
         icon: spotifyIcon,
       },
     ],
-    iconLight: micIcon,
-    iconDark: micIcon,
+    icon: micIcon,
   },
   {
     title: 'Podcast',
@@ -166,8 +162,7 @@ export const RESOURCES = [
         icon: spotifyIcon,
       },
     ],
-    iconLight: micIcon,
-    iconDark: micIcon,
+    icon: micIcon,
   },
   {
     title: 'Podcast',
@@ -185,46 +180,7 @@ export const RESOURCES = [
         icon: spotifyIcon,
       },
     ],
-    iconLight: micIcon,
-    iconDark: micIcon,
-  },
-  {
-    title: 'Podcast',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    buttons: [
-      {
-        text: 'YouTube',
-        link: 'https://www.youtube.com',
-        icon: youtubeIcon,
-      },
-      {
-        text: 'Spotify',
-        link: 'https://www.spotify.com',
-        icon: spotifyIcon,
-      },
-    ],
-    iconLight: micIcon,
-    iconDark: micIcon,
-  },
-  {
-    title: 'Podcast',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    buttons: [
-      {
-        text: 'YouTube',
-        link: 'https://www.youtube.com',
-        icon: youtubeIcon,
-      },
-      {
-        text: 'Spotify',
-        link: 'https://www.spotify.com',
-        icon: spotifyIcon,
-      },
-    ],
-    iconLight: micIcon,
-    iconDark: micIcon,
+    icon: micIcon,
   },
 ];
 

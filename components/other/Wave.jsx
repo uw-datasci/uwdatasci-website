@@ -13,7 +13,7 @@ export default function Wave() {
         src={themeContext.theme === 'light' ? waveLight : waveDark}
         alt="wave"
         priority
-        className="-ml-[60%] w-[1300px] max-w-none 2xl:w-screen sm:ml-0"
+        className="no-select-or-drag -ml-[60%] w-[1300px] max-w-none sm:ml-0 2xl:w-screen"
       />
     </div>
   );

@@ -4,8 +4,8 @@ import MenuOpenContext from '../../store/menu-open-context';
 import Logo from './Logo';
 import ThemeToggle from '../navigation/ThemeToggle';
 import GradientBorder from '../UI/GradientBorder';
-import { MENU } from '../../constants/menu';
 import Button from '../UI/Button';
+import { MENU } from '../../constants/menu';
 
 export default function Header() {
   const menuOpenContext = useContext(MenuOpenContext);

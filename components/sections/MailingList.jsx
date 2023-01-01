@@ -31,8 +31,8 @@ export default function MailingList() {
 
   return (
     <Banner>
-      <div className="xl:flex xl:items-center xl:gap-28">
-        <div>
+      <div className="xl:flex xl:items-center xl:justify-between xl:gap-28">
+        <div className="max-w-[600px]">
           <h2 className="mb-3 xl:mb-6">
             <span className="h2">Join Our Mailing List</span>
           </h2>
@@ -80,7 +80,11 @@ export default function MailingList() {
           ) : null}
         </div>
 
-        <Image src={echo} alt="echo" className="hidden w-[32%] xl:block" />
+        <Image
+          src={echo}
+          alt="echo"
+          className="no-select-or-drag hidden w-[32%] xl:block"
+        />
       </div>
     </Banner>
   );

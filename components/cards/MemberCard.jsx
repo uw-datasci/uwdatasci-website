@@ -12,7 +12,7 @@ export default function MemberCard({ name, position, socials, image }) {
         <Image
           src={image}
           alt={name}
-          className="mb-4 inline-block w-32 rounded-md"
+          className="no-select-or-drag mb-4 inline-block w-32 rounded-md"
         />
         <h4 className="mb-3 text-2xl font-semibold text-black dark:text-white">
           {name}
@@ -49,7 +49,7 @@ export default function MemberCard({ name, position, socials, image }) {
                 <Image
                   src={icon}
                   alt={social.type}
-                  className="filter-purple dark:filter-light-purple w-6"
+                  className="no-select-or-drag filter-purple dark:filter-light-purple w-6"
                 />
               </a>
             );

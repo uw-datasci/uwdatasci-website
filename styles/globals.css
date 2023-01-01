@@ -12,7 +12,7 @@ html {
   }
 
   .section {
-    @apply mb-25 last:mb-0 md:mb-40 md:last:mb-0;
+    @apply mb-25 md:mb-40;
   }
 
   .transition-300 {
@@ -64,5 +64,19 @@ html {
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .no-select-or-drag {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
   }
 }

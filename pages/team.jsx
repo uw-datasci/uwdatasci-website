@@ -1,5 +1,5 @@
 import TeamGrid from '../components/sections/TeamGrid';
-import Footer from '../components/navigation/Footer;';
+import Footer from '../components/navigation/Footer';
 
 export default function Team() {
   return (

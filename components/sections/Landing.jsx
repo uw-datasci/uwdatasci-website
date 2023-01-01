@@ -1,9 +1,20 @@
+import { useRouter } from 'next/router';
 import GradientBorder from '../UI/GradientBorder';
 import Button from '../UI/Button';
-import { useRouter } from 'next/router';
 
 export default function Landing() {
   const router = useRouter();
+
+  const BUTTONS = [
+    {
+      text: 'Join Us',
+      onClick: () => window.open('https://bit.ly/dsc-22-signup', '_blank'),
+    },
+    {
+      text: 'Events',
+      onClick: () => router.push('/#events'),
+    },
+  ];
 
   return (
     <section className="section m-horizontal text-center">
@@ -13,45 +24,33 @@ export default function Landing() {
             University of Waterloo <br /> Data Science Club
           </span>
         </h1>
+
         <p className="mb-10 leading-relaxed text-purple dark:text-lightPurple sm:text-lg sm:leading-relaxed md:mb-14 lg:text-xl lg:leading-relaxed">
           Inspiring the data science leaders of the future by building an
           inclusive community to bridge the gap between academics and the
           industry.
         </p>
-        <div className="mx-auto flex flex-col gap-5 xs:flex-row xs:justify-center xs:gap-8 md:gap-12">
-          <GradientBorder
-            onClick={() => window.open('', '_blank')}
-            gradient="dark:white-to-light-purple black-to-purple"
-            borderRadius="rounded-full"
-            classes="transition-300 md:hover:-translate-y-0.5"
-          >
-            <Button
-              bg="white-to-lighter-purple dark:black-to-dark-purple"
-              border="rounded-full"
-              px="px-9"
-              py="py-3 md:py-4"
-              font="gradient-text dark:white-to-light-purple black-to-purple font-medium md:text-xl"
-            >
-              Join Us
-            </Button>
-          </GradientBorder>
 
-          <GradientBorder
-            onClick={() => router.push('/events')}
-            gradient="dark:white-to-light-purple black-to-purple"
-            borderRadius="rounded-full"
-            classes="transition-300 md:hover:-translate-y-0.5"
-          >
-            <Button
-              bg="white-to-lighter-purple dark:black-to-dark-purple"
-              border="rounded-full"
-              px="px-9"
-              py="py-3 md:py-4"
-              font="gradient-text dark:white-to-light-purple black-to-purple font-medium md:text-xl"
+        <div className="flex flex-col gap-5 xs:mx-auto xs:flex-row xs:justify-center xs:gap-8 md:gap-12">
+          {BUTTONS.map((button) => (
+            <GradientBorder
+              onClick={button.onClick}
+              gradient="dark:white-to-light-purple black-to-purple"
+              borderRadius="rounded-full"
+              classes="transition-300 md:hover:-translate-y-0.5"
+              key={button.text}
             >
-              Events
-            </Button>
-          </GradientBorder>
+              <Button
+                bg="white-to-lighter-purple dark:black-to-dark-purple"
+                border="rounded-full"
+                px="px-7 lg:px-9"
+                py="py-3 md:py-4"
+                font="gradient-text dark:white-to-light-purple black-to-purple font-medium md:text-lg lg:text-xl"
+              >
+                {button.text}
+              </Button>
+            </GradientBorder>
+          ))}
         </div>
       </div>
     </section>

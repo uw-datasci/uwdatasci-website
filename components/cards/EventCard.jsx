@@ -18,7 +18,7 @@ export default function EventCard({
       <Image
         src={image}
         alt={title}
-        className="aspect-[2/1] w-full object-cover"
+        className="no-select-or-drag aspect-[2/1] w-full object-cover"
       />
       <div className="px-5 pt-3 pb-8 md:px-7 md:pt-4 md:pb-10">
         <h3 className="mb-2 text-2xl font-bold text-black dark:text-white md:mb-3 md:text-3xl">
@@ -31,7 +31,7 @@ export default function EventCard({
           <Image
             src={clockIcon}
             alt="clock icon"
-            className="dark:filter-light-purple filter-purple w-6"
+            className="no-select-or-drag dark:filter-light-purple filter-purple w-6"
           />
           <p className="text-purple dark:text-lightPurple">{time}</p>
         </div>
@@ -39,7 +39,7 @@ export default function EventCard({
           <Image
             src={mapIcon}
             alt="map icon"
-            className="dark:filter-light-purple filter-purple w-6"
+            className="no-select-or-drag dark:filter-light-purple filter-purple w-6"
           />
           <p className="text-purple dark:text-lightPurple">{location}</p>
         </div>

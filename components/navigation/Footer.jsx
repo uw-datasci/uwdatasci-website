@@ -67,7 +67,7 @@ export default function Footer() {
             <Image
               src={social.icon}
               alt={social.type}
-              className="filter-purple dark:filter-light-purple w-6"
+              className="no-select-or-drag filter-purple dark:filter-light-purple w-6"
             />
           </a>
         ))}
