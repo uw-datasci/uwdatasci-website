@@ -5,7 +5,7 @@ import { RECORDINGS } from '../../constants/data';
 export default function RecordingsCarousel() {
   return (
     <section className="section">
-      <Carousel title="Recordings" gap="mr-6">
+      <Carousel title="Recordings" gap="mr-6 lg:mr-8">
         {RECORDINGS.map((recording) => (
           <RecordingCard
             title={recording.title}

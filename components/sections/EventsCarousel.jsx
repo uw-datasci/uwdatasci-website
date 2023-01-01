@@ -5,7 +5,7 @@ import { EVENTS } from '../../constants/data';
 export default function EventsCarousel({ showTitle }) {
   return (
     <section className="section">
-      <Carousel title={showTitle ? 'Events' : ''} gap="mr-6">
+      <Carousel title={showTitle ? 'Events' : ''} gap="mr-6 lg:mr-8">
         {EVENTS.map((event) => (
           <EventCard
             title={event.title}

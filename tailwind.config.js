@@ -50,6 +50,7 @@ module.exports = {
       width: {},
       spacing: {
         0.25: '1px',
+        18: '72px',
         25: '100px',
         50: '200px',
       },

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Logo from './Logo';
 import mailIcon from '../../public/img/icons/mail.svg';
 import instagramIcon from '../../public/img/icons/instagram.svg';
@@ -7,7 +8,6 @@ import youtubeIcon from '../../public/img/icons/youtube.svg';
 import twitterIcon from '../../public/img/icons/twitter.svg';
 import tiktokIcon from '../../public/img/icons/tiktok.svg';
 import spotifyIcon from '../../public/img/icons/spotify.svg';
-import Image from 'next/image';
 
 const SOCIALS = [
   {

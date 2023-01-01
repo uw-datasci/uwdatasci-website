@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
         <Wave />
         <Header />
         <MobileMenu />
-        <div className="pt-44 md:pt-56">
+        <div className="pt-48 md:pt-56">
           <Component {...pageProps} />
         </div>
       </MenuOpenContextProvider>

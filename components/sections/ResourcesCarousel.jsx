@@ -5,7 +5,7 @@ import { RESOURCES } from '../../constants/data';
 export default function ResourcesCarousel({ showTitle }) {
   return (
     <section className="section">
-      <Carousel title={showTitle ? 'Resources' : ''} gap="mr-6">
+      <Carousel title={showTitle ? 'Resources' : ''} gap="mr-6 lg:mr-8">
         {RESOURCES.map((resource) => (
           <ResourceCard
             title={resource.title}
