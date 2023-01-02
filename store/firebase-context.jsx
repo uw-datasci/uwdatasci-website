@@ -8,19 +8,32 @@ const FirebaseContext = createContext();
 export default FirebaseContext;
 
 export function FirebaseContextProvider({ children }) {
-  const [events, setEvents] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [pastEvents, setPastEvents] = useState([]);
   const [resources, setResources] = useState([]);
   const [recordings, setRecordings] = useState([]);
   const [team, setTeam] = useState({});
   const [officeStatus, setOfficeStatus] = useState('no');
 
   useEffect(() => {
-    const eventsRef = ref(db, 'events');
+    const eventsRef = ref(db, 'upcomingEvents');
 
     const unsubscribe = onValue(eventsRef, (snapshot) => {
-      const encodedEvents = snapshot.val();
+      const encodedUpcomingEvents = snapshot.val();
 
-      setEvents(decode(encodedEvents));
+      setUpcomingEvents(decode(encodedUpcomingEvents));
+    });
+
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const eventsRef = ref(db, 'pastEvents');
+
+    const unsubscribe = onValue(eventsRef, (snapshot) => {
+      const encodedPastEvents = snapshot.val();
+
+      setPastEvents(decode(encodedPastEvents));
     });
 
     return unsubscribe;
@@ -76,7 +89,14 @@ export function FirebaseContextProvider({ children }) {
 
   return (
     <FirebaseContext.Provider
-      value={{ events, resources, recordings, team, officeStatus }}
+      value={{
+        upcomingEvents,
+        pastEvents,
+        resources,
+        recordings,
+        team,
+        officeStatus,
+      }}
     >
       {children}
     </FirebaseContext.Provider>

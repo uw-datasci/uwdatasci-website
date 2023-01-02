@@ -3,13 +3,19 @@ import SEO from '../components/other/SEO';
 import Landing from '../components/sections/Landing';
 import About from '../components/sections/About';
 import Milestones from '../components/sections/Milestones';
-import EventsCarousel from '../components/sections/EventsCarousel';
+import UpcomingEventsCarousel from '../components/sections/UpcomingEventsCarousel';
 import ResourcesCarousel from '../components/sections/ResourcesCarousel';
+import PastEventsCarousel from '../components/sections/PastEventsCarousel';
 import MailingList from '../components/sections/MailingList';
 import Contact from '../components/sections/Contact';
 import Footer from '../components/navigation/Footer';
 
-export default function Home({ events, resources, officeStatus }) {
+export default function Home({
+  upcomingEvents,
+  pastEvents,
+  resources,
+  officeStatus,
+}) {
   return (
     <>
       <SEO
@@ -20,8 +26,12 @@ export default function Home({ events, resources, officeStatus }) {
       <Landing />
       {/* <About /> */}
       <Milestones />
-      <EventsCarousel showTitle={true} fetchedEvents={events} />
+      <UpcomingEventsCarousel
+        showTitle={true}
+        fetchedUpcomingEvents={upcomingEvents}
+      />
       <ResourcesCarousel showTitle={true} fetchedResources={resources} />
+      <PastEventsCarousel fetchedPastEvents={pastEvents} />
       <MailingList />
       <Contact fetchedOfficeStatus={officeStatus} />
       <Footer />
@@ -30,13 +40,15 @@ export default function Home({ events, resources, officeStatus }) {
 }
 
 export async function getStaticProps() {
-  const events = await getDataOnce('events');
+  const upcomingEvents = await getDataOnce('upcomingEvents');
+  const pastEvents = await getDataOnce('pastEvents');
   const resources = await getDataOnce('resources');
   const officeStatus = await getDataOnce('officeStatus');
 
   return {
     props: {
-      events,
+      upcomingEvents,
+      pastEvents,
       resources,
       officeStatus,
     },

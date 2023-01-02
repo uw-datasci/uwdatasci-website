@@ -43,7 +43,7 @@ export default function TeamGrid({ fetchedTeam }) {
                 image={member.image ? member.image : echo}
                 socials={{
                   website: member.website,
-                  email: member.email,
+                  email: `mailto:${member.email}`,
                   instagram: member.instagram,
                   linkedin: member.linkedin,
                 }}

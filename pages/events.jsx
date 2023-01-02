@@ -1,10 +1,11 @@
 import { getDataOnce } from '../lib/firebase';
-import EventsCarousel from '../components/sections/EventsCarousel';
-import RecordingsCarousel from '../components/sections/RecordingsCarousel';
-import Footer from '../components/navigation/Footer';
 import SEO from '../components/other/SEO';
+import UpcomingEventsCarousel from '../components/sections/UpcomingEventsCarousel';
+import RecordingsCarousel from '../components/sections/RecordingsCarousel';
+import PastEventsCarousel from '../components/sections/PastEventsCarousel';
+import Footer from '../components/navigation/Footer';
 
-export default function Events({ events, recordings }) {
+export default function Events({ upcomingEvents, pastEvents, recordings }) {
   return (
     <>
       <SEO
@@ -15,20 +16,26 @@ export default function Events({ events, recordings }) {
       <h1 className="mb-6 text-center md:mb-0">
         <span className="h1">Events</span>
       </h1>
-      <EventsCarousel showTitle={false} fetchedEvents={events} />
+      <UpcomingEventsCarousel
+        showTitle={false}
+        fetchedUpcomingEvents={upcomingEvents}
+      />
       <RecordingsCarousel fetchedRecordings={recordings} />
+      <PastEventsCarousel fetchedPastEvents={pastEvents} />
       <Footer />
     </>
   );
 }
 
 export async function getStaticProps() {
-  const events = await getDataOnce('events');
+  const upcomingEvents = await getDataOnce('upcomingEvents');
+  const pastEvents = await getDataOnce('pastEvents');
   const recordings = await getDataOnce('recordings');
 
   return {
     props: {
-      events,
+      upcomingEvents,
+      pastEvents,
       recordings,
     },
     revalidate: 1,
