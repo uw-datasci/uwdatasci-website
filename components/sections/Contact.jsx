@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import handleSubmit from '../../utils/form-submission';
+import FirebaseContext from '../../store/firebase-context';
 import Input from '../UI/Input';
 import GradientBorder from '../UI/GradientBorder';
 import Button from '../UI/Button';
 import mailIcon from '../../public/img/icons/mail.svg';
 import instagramIcon from '../../public/img/icons/instagram.svg';
 import discordIcon from '../../public/img/icons/discord.svg';
-import FirebaseContext from '../../store/firebase-context';
 
 const SOCIAL_BUTTONS = [
   {

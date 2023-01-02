@@ -18,7 +18,7 @@ export default function Home({ events, resources, officeStatus }) {
         keywords="University of Waterloo,Data Science,University of Waterloo Data Science Club,Waterloo Data Science,UWDSC"
       />
       <Landing />
-      <About />
+      {/* <About /> */}
       <Milestones />
       <EventsCarousel showTitle={true} fetchedEvents={events} />
       <ResourcesCarousel showTitle={true} fetchedResources={resources} />

@@ -10,10 +10,8 @@ export default function MobileMenu() {
 
   return (
     <div
-      className={`transition-300 fixed inset-0 z-50 flex flex-col overscroll-contain bg-white px-5 pt-12 dark:bg-black 3xs:px-5 xs:px-7 sm:px-9 md:hidden ${
-        menuOpenContext.isMenuOpen
-          ? 'translate-x-0 opacity-100'
-          : 'translate-x-full opacity-0'
+      className={`transition-300 fixed inset-0 z-50 flex translate-x-full flex-col bg-white px-5 pt-12 opacity-0 dark:bg-black 3xs:px-5 xs:px-7 sm:px-9 md:hidden ${
+        menuOpenContext.isMenuOpen ? 'translate-x-0 opacity-100' : ''
       }`}
     >
       <GradientBorder
