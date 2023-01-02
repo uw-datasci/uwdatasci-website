@@ -8,7 +8,7 @@ import MailingList from '../components/sections/MailingList';
 import Contact from '../components/sections/Contact';
 import Footer from '../components/navigation/Footer';
 
-export default function Home({ events, resources }) {
+export default function Home({ events, resources, officeStatus }) {
   return (
     <>
       <Landing />
@@ -17,7 +17,7 @@ export default function Home({ events, resources }) {
       <EventsCarousel showTitle={true} fetchedEvents={events} />
       <ResourcesCarousel showTitle={true} fetchedResources={resources} />
       <MailingList />
-      <Contact />
+      <Contact fetchedOfficeStatus={officeStatus} />
       <Footer />
     </>
   );
@@ -26,11 +26,13 @@ export default function Home({ events, resources }) {
 export async function getStaticProps() {
   const events = await getDataOnce('events');
   const resources = await getDataOnce('resources');
+  const officeStatus = await getDataOnce('officeStatus');
 
   return {
     props: {
       events,
       resources,
+      officeStatus,
     },
     revalidate: 1,
   };

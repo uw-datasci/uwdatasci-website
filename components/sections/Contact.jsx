@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import handleSubmit from '../../utils/form-submission';
@@ -8,6 +8,7 @@ import Button from '../UI/Button';
 import mailIcon from '../../public/img/icons/mail.svg';
 import instagramIcon from '../../public/img/icons/instagram.svg';
 import discordIcon from '../../public/img/icons/discord.svg';
+import FirebaseContext from '../../store/firebase-context';
 
 const SOCIAL_BUTTONS = [
   {
@@ -47,7 +48,7 @@ function validate(values) {
   return errors;
 }
 
-export default function Contact() {
+export default function Contact({ fetchedOfficeStatus }) {
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -63,6 +64,16 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+
+  const firebaseContext = useContext(FirebaseContext);
+
+  const [officeStatus, setOfficeStatus] = useState(fetchedOfficeStatus);
+
+  useEffect(() => {
+    if (firebaseContext.officeStatus) {
+      setOfficeStatus(firebaseContext.officeStatus);
+    }
+  }, [firebaseContext.officeStatus]);
 
   return (
     <section
@@ -85,9 +96,18 @@ export default function Contact() {
           <div className="lg:flex lg:flex-wrap lg:gap-5">
             <div className="relative rounded-full border border-lightPurple py-2.5 px-4 dark:border-purple lg:flex lg:items-center lg:gap-2">
               <p className="text-center text-black dark:text-white">
-                Office Status: <span className="font-semibold">Open</span>
+                Office Status:{' '}
+                <span className="font-semibold">
+                  {officeStatus === 'yes' ? 'Open' : 'Closed'}
+                </span>
               </p>
-              <div className="absolute top-1/2 right-5 h-2 w-2 -translate-y-1/2 rounded-full bg-darkGreen dark:bg-lightGreen lg:relative lg:right-0 lg:top-0 lg:translate-y-0 " />
+              <div
+                className={`absolute top-1/2 right-5 h-2 w-2 -translate-y-1/2 rounded-full lg:relative lg:right-0 lg:top-0 lg:translate-y-0 ${
+                  officeStatus === 'yes'
+                    ? 'bg-darkGreen dark:bg-lightGreen'
+                    : 'bg-red'
+                }`}
+              />
             </div>
 
             {SOCIAL_BUTTONS.map((socialButton) => (

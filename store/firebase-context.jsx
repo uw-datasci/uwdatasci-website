@@ -12,6 +12,7 @@ export function FirebaseContextProvider({ children }) {
   const [resources, setResources] = useState([]);
   const [recordings, setRecordings] = useState([]);
   const [team, setTeam] = useState({});
+  const [officeStatus, setOfficeStatus] = useState('no');
 
   useEffect(() => {
     const eventsRef = ref(db, 'events');
@@ -61,8 +62,22 @@ export function FirebaseContextProvider({ children }) {
     return unsubscribe;
   }, []);
 
+  useEffect(() => {
+    const officeStatusRef = ref(db, 'officeRef');
+
+    const unsubscribe = onValue(officeStatusRef, (snapshot) => {
+      const officeStatus = snapshot.val();
+
+      setOfficeStatus(officeStatus);
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
-    <FirebaseContext.Provider value={{ events, resources, recordings, team }}>
+    <FirebaseContext.Provider
+      value={{ events, resources, recordings, team, officeStatus }}
+    >
       {children}
     </FirebaseContext.Provider>
   );
