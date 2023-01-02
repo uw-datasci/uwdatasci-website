@@ -7,9 +7,9 @@ export default function ThemeToggle() {
   return (
     <div
       onClick={themeContext.changeTheme}
-      className={`transition-300 h-5 w-5 rotate-180 cursor-pointer rounded-full bg-black outline outline-1 outline-darkPurple dark:rotate-0 dark:outline-lightPurple`}
+      className={`transition-300 h-5 w-5 rotate-180 cursor-pointer rounded-full border border-black bg-black dark:rotate-0 dark:border-lightPurple`}
     >
-      <div className="h-5 w-2.5 rounded-l-full bg-lightPurple"></div>
+      <div className="-mt-0.25 -ml-0.25 h-5 w-2.5 rounded-l-full bg-lightPurple"></div>
     </div>
   );
 }

@@ -2,10 +2,16 @@ import { getDataOnce } from '../lib/firebase';
 import EventsCarousel from '../components/sections/EventsCarousel';
 import RecordingsCarousel from '../components/sections/RecordingsCarousel';
 import Footer from '../components/navigation/Footer';
+import SEO from '../components/other/SEO';
 
 export default function Events({ events, recordings }) {
   return (
     <>
+      <SEO
+        title="Events | UWaterloo Data Science Club"
+        description="Interested in attending UWaterloo Data Science Club's events? Find a list of them here."
+        keywords=""
+      />
       <h1 className="mb-6 text-center md:mb-0">
         <span className="h1">Events</span>
       </h1>

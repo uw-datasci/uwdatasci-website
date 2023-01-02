@@ -21,7 +21,7 @@ export default function Carousel({ title, gap, children }) {
 
         <div className="flex gap-3 md:gap-4">
           <div
-            className="grid h-10 w-10 cursor-pointer place-content-center rounded-full outline outline-1 outline-purple dark:outline-lightPurple md:h-11 md:w-11"
+            className="grid h-10 w-10 cursor-pointer place-content-center rounded-full border border-purple dark:border-lightPurple md:h-11 md:w-11"
             onClick={scrollLeft}
           >
             <Image
@@ -31,7 +31,7 @@ export default function Carousel({ title, gap, children }) {
             />
           </div>
           <div
-            className="grid h-10 w-10 cursor-pointer place-content-center rounded-full outline outline-1 outline-purple dark:outline-lightPurple md:h-11 md:w-11"
+            className="grid h-10 w-10 cursor-pointer place-content-center rounded-full border border-purple dark:border-lightPurple md:h-11 md:w-11"
             onClick={scrollRight}
           >
             <Image
@@ -45,7 +45,7 @@ export default function Carousel({ title, gap, children }) {
 
       <div
         ref={carouselRef}
-        className={`no-scrollbar flex overflow-x-scroll scroll-smooth whitespace-nowrap px-5 outline-darkPurple xs:px-7 sm:px-9 xl:px-16 3xl:px-[calc((100%-1280px)/2)]`}
+        className={`no-scrollbar flex overflow-x-scroll scroll-smooth whitespace-nowrap px-5 xs:px-7 sm:px-9 xl:px-16 3xl:px-[calc((100%-1280px)/2)]`}
       >
         {children.map((child, i) => (
           <div
