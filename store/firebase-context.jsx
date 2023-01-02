@@ -76,7 +76,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const officeStatusRef = ref(db, 'officeRef');
+    const officeStatusRef = ref(db, 'officeStatus');
 
     const unsubscribe = onValue(officeStatusRef, (snapshot) => {
       const officeStatus = snapshot.val();
