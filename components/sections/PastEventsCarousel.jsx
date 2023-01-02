@@ -15,7 +15,7 @@ export default function PastEventsCarousel({ fetchedPastEvents }) {
     }
   }, [firebaseContext.pastEvents]);
 
-  return (
+  return Array.isArray(pastEvents) && pastEvents.length > 0 ? (
     <section className="section relative ">
       <ID id="events" />
       <Carousel title="Past Events" gap="mr-6 lg:mr-8">
@@ -28,5 +28,5 @@ export default function PastEventsCarousel({ fetchedPastEvents }) {
         ))}
       </Carousel>
     </section>
-  );
+  ) : null;
 }

@@ -14,7 +14,7 @@ export default function ResourcesCarousel({ showTitle, fetchedResources }) {
     }
   }, [firebaseContext.resources]);
 
-  return (
+  return Array.isArray(resources) && resources.length > 0 ? (
     <section className="section">
       <Carousel title={showTitle ? 'Resources' : ''} gap="mr-6 lg:mr-8">
         {resources.map((resource) => (
@@ -29,5 +29,5 @@ export default function ResourcesCarousel({ showTitle, fetchedResources }) {
         ))}
       </Carousel>
     </section>
-  );
+  ) : null;
 }

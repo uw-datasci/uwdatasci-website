@@ -15,7 +15,7 @@ export default function UpcomingEventsCarousel({ fetchedUpcomingEvents }) {
     }
   }, [firebaseContext.upcomingEvents]);
 
-  return (
+  return Array.isArray(upcomingEvents) && upcomingEvents.length > 0 ? (
     <section className="section relative ">
       <ID id="events" />
       <Carousel title="Future Events" gap="mr-6 lg:mr-8">
@@ -32,5 +32,5 @@ export default function UpcomingEventsCarousel({ fetchedUpcomingEvents }) {
         ))}
       </Carousel>
     </section>
-  );
+  ) : null;
 }

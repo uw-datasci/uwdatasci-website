@@ -14,7 +14,7 @@ export default function RecordingsCarousel({ fetchedRecordings }) {
     }
   }, [firebaseContext.recordings]);
 
-  return (
+  return Array.isArray(recordings) && recordings.length > 0 ? (
     <section className="section">
       <Carousel title="Recordings" gap="mr-6 lg:mr-8">
         {recordings.map((recording) => (
@@ -26,5 +26,5 @@ export default function RecordingsCarousel({ fetchedRecordings }) {
         ))}
       </Carousel>
     </section>
-  );
+  ) : null;
 }
