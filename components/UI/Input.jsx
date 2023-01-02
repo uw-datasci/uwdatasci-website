@@ -5,11 +5,12 @@ export default function TextInput({
   type,
   onChange,
   onBlur,
+  onFocus,
   value,
   placeholder,
   classes,
 }) {
-  const inputClasses = `w-full rounded-sm border border-purple bg-white py-3 px-4 leading-relaxed resize-none text-black outline-none dark:bg-black dark:text-lightPurple md:rounded-md lg:px-5 lg:text-lg lg:leading-relaxed ${classes}`;
+  const inputClasses = `w-full rounded-sm border border-purple bg-white py-3 px-4 leading-relaxed resize-none text-black outline-none dark:bg-black dark:text-lightPurple md:rounded-md ${classes}`;
 
   return inputType === 'textinput' ? (
     <input
@@ -18,6 +19,7 @@ export default function TextInput({
       type={type}
       onChange={onChange}
       onBlur={onBlur}
+      onFocus={onFocus}
       value={value}
       placeholder={placeholder}
       className={inputClasses}
@@ -29,6 +31,7 @@ export default function TextInput({
       rows={8}
       onChange={onChange}
       onBlur={onBlur}
+      onFocus={onFocus}
       value={value}
       placeholder={placeholder}
       className={inputClasses}

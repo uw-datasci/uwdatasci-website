@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import FirebaseContext from '../../store/firebase-context';
 import MemberCard from '../cards/MemberCard';
-import { TEAM } from '../../constants/data';
 import echo from '../../public/img/graphics/echo-profile.png';
 
 const ORDER = [
@@ -18,10 +17,10 @@ const ORDER = [
   'Social Media',
 ];
 
-export default function TeamGrid() {
+export default function TeamGrid({ fetchedTeam }) {
   const firebaseContext = useContext(FirebaseContext);
 
-  const [team, setTeam] = useState({});
+  const [team, setTeam] = useState(fetchedTeam);
 
   useEffect(() => {
     if (firebaseContext.team !== {}) {

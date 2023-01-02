@@ -3,12 +3,11 @@ import FirebaseContext from '../../store/firebase-context';
 import Carousel from '../UI/Carousel';
 import EventCard from '../cards/EventCard';
 import ID from '../other/ID';
-import { EVENTS } from '../../constants/data';
 
-export default function EventsCarousel({ showTitle }) {
+export default function EventsCarousel({ showTitle, fetchedEvents }) {
   const firebaseContext = useContext(FirebaseContext);
 
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(fetchedEvents);
 
   useEffect(() => {
     if (firebaseContext.events.length !== 0) {

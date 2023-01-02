@@ -2,12 +2,11 @@ import { useContext, useEffect, useState } from 'react';
 import FirebaseContext from '../../store/firebase-context';
 import Carousel from '../UI/Carousel';
 import RecordingCard from '../cards/RecordingCard';
-import { RECORDINGS } from '../../constants/data';
 
-export default function RecordingsCarousel() {
+export default function RecordingsCarousel({ fetchedRecordings }) {
   const firebaseContext = useContext(FirebaseContext);
 
-  const [recordings, setRecordings] = useState([]);
+  const [recordings, setRecordings] = useState(fetchedRecordings);
 
   useEffect(() => {
     if (firebaseContext.recordings.length > 0) {

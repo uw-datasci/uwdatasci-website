@@ -3,10 +3,10 @@ import FirebaseContext from '../../store/firebase-context';
 import Carousel from '../UI/Carousel';
 import ResourceCard from '../cards/ResourceCard';
 
-export default function ResourcesCarousel({ showTitle }) {
+export default function ResourcesCarousel({ showTitle, fetchedResources }) {
   const firebaseContext = useContext(FirebaseContext);
 
-  const [resources, setResources] = useState([]);
+  const [resources, setResources] = useState(fetchedResources);
 
   useEffect(() => {
     if (firebaseContext.resources.length > 0) {

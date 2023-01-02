@@ -22,27 +22,33 @@ export default function EventCard({
         height={380}
         className="no-select-or-drag aspect-[2/1] w-full object-cover"
       />
+
       <div className="px-5 pt-3 pb-8 md:px-7 md:pt-4 md:pb-10">
         <h3 className="mb-2 text-2xl font-bold text-black dark:text-white md:mb-3 md:text-3xl">
           {title}
         </h3>
+
         <p className="mb-4 leading-relaxed text-purple dark:text-lightPurple md:mb-5">
           {description}
         </p>
+
         <div className="mb-4 flex gap-3 md:mb-5">
           <Image
             src={clockIcon}
             alt="clock icon"
             className="no-select-or-drag dark:filter-light-purple filter-purple w-6"
           />
+
           <p className="text-purple dark:text-lightPurple">{time}</p>
         </div>
+
         <div className="flex gap-3">
           <Image
             src={mapIcon}
             alt="map icon"
             className="no-select-or-drag dark:filter-light-purple filter-purple w-6"
           />
+
           <p className="text-purple dark:text-lightPurple">{location}</p>
         </div>
       </div>

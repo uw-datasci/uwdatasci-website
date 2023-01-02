@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import handleSubmit from '../../utils/form-submission';
@@ -7,7 +8,6 @@ import Button from '../UI/Button';
 import mailIcon from '../../public/img/icons/mail.svg';
 import instagramIcon from '../../public/img/icons/instagram.svg';
 import discordIcon from '../../public/img/icons/discord.svg';
-import Router from 'next/router';
 
 const SOCIAL_BUTTONS = [
   {
@@ -58,9 +58,11 @@ export default function Contact() {
     onSubmit: (values, actions) => {
       handleSubmit('contact', values);
       actions.resetForm();
-      Router.push('/success');
+      setSubmitted(true);
     },
   });
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <section
@@ -85,7 +87,7 @@ export default function Contact() {
               <p className="text-center text-black dark:text-white">
                 Office Status: <span className="font-semibold">Open</span>
               </p>
-              <div className="absolute top-1/2 right-5 h-2 w-2 -translate-y-1/2 rounded-full bg-green lg:relative lg:right-0 lg:top-0 lg:translate-y-0 " />
+              <div className="absolute top-1/2 right-5 h-2 w-2 -translate-y-1/2 rounded-full bg-darkGreen dark:bg-lightGreen lg:relative lg:right-0 lg:top-0 lg:translate-y-0 " />
             </div>
 
             {SOCIAL_BUTTONS.map((socialButton) => (
@@ -123,6 +125,7 @@ export default function Contact() {
               type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              onFocus={() => setSubmitted(false)}
               value={formik.values.name}
               placeholder="Name"
             />
@@ -142,6 +145,7 @@ export default function Contact() {
               type="email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              onFocus={() => setSubmitted(false)}
               value={formik.values.email}
               placeholder="Email"
             />
@@ -160,6 +164,7 @@ export default function Contact() {
               name="message"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              onFocus={() => setSubmitted(false)}
               value={formik.values.message}
               placeholder="Message"
             />
@@ -167,6 +172,12 @@ export default function Contact() {
             {formik.touched.message && formik.errors.message ? (
               <p className="mt-3 text-sm text-red lg:mt-4 lg:text-base">
                 {formik.errors.message}
+              </p>
+            ) : null}
+
+            {submitted ? (
+              <p className="mt-3 text-sm text-darkGreen dark:text-lightGreen lg:mt-4 lg:text-base">
+                Success! We will email you back shortly.
               </p>
             ) : null}
           </div>

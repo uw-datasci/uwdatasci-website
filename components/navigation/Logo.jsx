@@ -7,9 +7,7 @@ export default function Logo() {
         <p className="mb-2.5 text-lg font-extrabold leading-4.5">
           <span className="black-to-purple dark:white-to-light-purple gradient-text">
             UW
-          </span>
-          <br />
-          <span className="black-to-purple dark:white-to-light-purple gradient-text">
+            <br />
             DSC.
           </span>
         </p>

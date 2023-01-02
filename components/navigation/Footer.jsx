@@ -56,6 +56,7 @@ export default function Footer() {
   return (
     <footer className="white-to-lighter-purple dark:black-to-dark-purple flex flex-col items-center gap-7 px-5 pt-7 pb-9 xs:px-7 sm:px-9 md:flex-row md:justify-between">
       <Logo />
+
       <div className="flex justify-center gap-3 md:gap-4">
         {SOCIALS.map((social) => (
           <a

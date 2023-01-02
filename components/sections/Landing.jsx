@@ -8,7 +8,7 @@ export default function Landing() {
   const BUTTONS = [
     {
       text: 'Join Us',
-      onClick: () => window.open('https://bit.ly/dsc-22-signup', '_blank'),
+      onClick: () => window.open('https://www.bit.ly/dsc-23', '_blank'),
     },
     {
       text: 'Events',

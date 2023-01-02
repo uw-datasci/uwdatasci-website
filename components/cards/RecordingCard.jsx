@@ -16,10 +16,12 @@ export default function RecordingCard({ title, link }) {
         frameBorder="0"
         className="no-select-or-drag aspect-video w-full"
       />
+
       <div className="px-5 pt-3 pb-8 md:px-7 md:pt-4 md:pb-10">
         <h3 className="mb-6 text-2xl font-bold text-black dark:text-white md:text-3xl">
           {title}
         </h3>
+        
         <Button
           bg="bg-white dark:bg-black"
           border="rounded-full border border-purple dark:border-lightPurple"

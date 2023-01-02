@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import handleSubmit from '../../utils/form-submission';
@@ -25,9 +26,11 @@ export default function MailingList() {
     onSubmit: (values, actions) => {
       handleSubmit('mailing-list', values);
       actions.resetForm();
-      Router.push('/success');
+      setSubmitted(true);
     },
   });
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <Banner>
@@ -36,14 +39,11 @@ export default function MailingList() {
           <h2 className="mb-3 xl:mb-6">
             <span className="h2">Join Our Mailing List</span>
           </h2>
-
           <p className="mb-7 leading-relaxed text-purple dark:text-lightPurple xl:mb-12 xl:text-lg xl:leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Want to keep up with all Data Science Club activities? Enter your
+            email address here to be notified periodically for all our news and
+            events! Also, no spam emails, we promise!
           </p>
-
           <form
             name="mailing-list"
             onSubmit={formik.handleSubmit}
@@ -55,6 +55,7 @@ export default function MailingList() {
               name="email"
               type="email"
               onChange={formik.handleChange}
+              onFocus={() => setSubmitted(false)}
               onBlur={formik.handleBlur}
               value={formik.values.email}
               placeholder="Enter your email..."
@@ -72,10 +73,14 @@ export default function MailingList() {
               Submit
             </Button>
           </form>
-
           {formik.touched.email && formik.errors.email ? (
             <p className="mt-4 text-sm text-red lg:text-base">
               {formik.errors.email}
+            </p>
+          ) : null}
+          {submitted ? (
+            <p className="mt-4 text-sm text-darkGreen dark:text-lightGreen lg:text-base">
+              Success! Thank you for joining our mailing list.
             </p>
           ) : null}
         </div>

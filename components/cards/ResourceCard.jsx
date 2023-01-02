@@ -9,12 +9,14 @@ export default function ResourceCard({ title, description, button, link }) {
       classes="w-[300px] md:w-[380px] relative h-full"
     >
       <div className="relative px-5 pt-6 pb-8 md:px-7 md:pt-8 md:pb-10">
-        <h3 className="mb-2 text-2xl font-bold text-black dark:text-white md:text-3xl">
+        <h3 className="mb-2 text-2xl font-bold text-black dark:text-white md:mb-3 md:text-3xl">
           {title}
         </h3>
+
         <p className="mb-6 leading-relaxed text-purple dark:text-lightPurple md:mb-9">
           {description}
         </p>
+        
         <Button
           bg="bg-white dark:bg-black"
           border="rounded-full border border-purple dark:border-lightPurple"
