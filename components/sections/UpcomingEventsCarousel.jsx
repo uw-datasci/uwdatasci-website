@@ -4,10 +4,7 @@ import Carousel from '../UI/Carousel';
 import UpcomingEventCard from '../cards/UpcomingEventCard';
 import ID from '../other/ID';
 
-export default function UpcomingEventsCarousel({
-  showTitle,
-  fetchedUpcomingEvents,
-}) {
+export default function UpcomingEventsCarousel({ fetchedUpcomingEvents }) {
   const firebaseContext = useContext(FirebaseContext);
 
   const [upcomingEvents, setUpcomingEvents] = useState(fetchedUpcomingEvents);
@@ -21,7 +18,7 @@ export default function UpcomingEventsCarousel({
   return (
     <section className="section relative ">
       <ID id="events" />
-      <Carousel title={showTitle ? 'Upcoming Events' : ''} gap="mr-6 lg:mr-8">
+      <Carousel title="Future Events" gap="mr-6 lg:mr-8">
         {upcomingEvents.map((upcomingEvent) => (
           <UpcomingEventCard
             title={upcomingEvent.title}

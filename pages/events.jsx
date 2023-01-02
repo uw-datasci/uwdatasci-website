@@ -13,13 +13,10 @@ export default function Events({ upcomingEvents, pastEvents, recordings }) {
         description="Interested in attending UWaterloo Data Science Club's events? Find a list of them here."
         keywords=""
       />
-      <h1 className="mb-6 text-center md:mb-0">
+      <h1 className="mb-12 text-center  md:mb-16 md:mb-0 xl:mb-20">
         <span className="h1">Events</span>
       </h1>
-      <UpcomingEventsCarousel
-        showTitle={false}
-        fetchedUpcomingEvents={upcomingEvents}
-      />
+      <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
       <RecordingsCarousel fetchedRecordings={recordings} />
       <PastEventsCarousel fetchedPastEvents={pastEvents} />
       <Footer />
