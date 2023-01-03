@@ -4,7 +4,7 @@ function encode(data) {
     .join('&');
 }
 
-export default function handleSubmit (name, data) {
+const handleSubmit = (name, data) => {
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -14,3 +14,5 @@ export default function handleSubmit (name, data) {
     }),
   }).catch((error) => alert(error));
 };
+
+export default handleSubmit;

@@ -134,8 +134,8 @@ export default function Contact({ fetchedOfficeStatus }) {
         <form
           name="contact"
           onSubmit={formik.handleSubmit}
-          data-netlify="true"
           className="flex flex-col gap-5 lg:gap-6"
+          data-netlify="true"
         >
           <div>
             <Input
