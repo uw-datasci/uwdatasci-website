@@ -1,14 +1,14 @@
-import { getDataOnce } from '../lib/firebase';
-import SEO from '../components/other/SEO';
-import Landing from '../components/sections/Landing';
-import About from '../components/sections/About';
-import Milestones from '../components/sections/Milestones';
-import UpcomingEventsCarousel from '../components/sections/UpcomingEventsCarousel';
-import ResourcesCarousel from '../components/sections/ResourcesCarousel';
-import PastEventsCarousel from '../components/sections/PastEventsCarousel';
-import MailingList from '../components/sections/MailingList';
-import Contact from '../components/sections/Contact';
-import Footer from '../components/navigation/Footer';
+import { getDataOnce } from "../lib/firebase";
+import SEO from "../components/other/SEO";
+import Landing from "../components/sections/Landing";
+import About from "../components/sections/About";
+import Milestones from "../components/sections/Milestones";
+import UpcomingEventsCarousel from "../components/sections/UpcomingEventsCarousel";
+import ResourcesCarousel from "../components/sections/ResourcesCarousel";
+import PastEventsCarousel from "../components/sections/PastEventsCarousel";
+import MailingList from "../components/sections/MailingList";
+import Contact from "../components/sections/Contact";
+import Footer from "../components/navigation/Footer";
 
 export default function Home({
   upcomingEvents,
@@ -24,7 +24,7 @@ export default function Home({
         keywords="University of Waterloo,Data Science,University of Waterloo Data Science Club,Waterloo Data Science,UWDSC"
       />
       <Landing />
-      {/* <About /> */}
+      <About />
       <Milestones />
       <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
       <ResourcesCarousel showTitle={true} fetchedResources={resources} />
@@ -37,10 +37,10 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const upcomingEvents = await getDataOnce('upcomingEvents');
-  const pastEvents = await getDataOnce('pastEvents');
-  const resources = await getDataOnce('resources');
-  const officeStatus = await getDataOnce('officeStatus');
+  const upcomingEvents = await getDataOnce("upcomingEvents");
+  const pastEvents = await getDataOnce("pastEvents");
+  const resources = await getDataOnce("resources");
+  const officeStatus = await getDataOnce("officeStatus");
 
   return {
     props: {
