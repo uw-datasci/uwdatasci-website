@@ -1,48 +1,31 @@
-import Card from "../UI/Card";
-import Image from "next/image";
-import { ABOUT } from "../../constants/data";
+import Card from '../UI/Card';
+import Image from 'next/image';
+import { ABOUT } from '../../constants/data';
 
 export default function About() {
   return (
-    <section className="section m-horizontal pb-4" id="aboutUs">
-      <div className="m-horizontal grid gap-9 pt-9 pb-4 md:pt-20 md:pb-4 xl:gap-20 xl:pb-4">
-        <div>
-          <h2 className="mb-3 md:mb-6">
-            <span className="h2 xl:text-7xl">About Us</span>
-          </h2>
-          <div className="flex flex-grow">
-            {ABOUT.map((card) => (
-              <Card
-                key={card.title}
-                borderRadius="rounded-2xl md:rounded-4xl"
-                //classes="w-[300px] md:w-[380px] relative h-full"
-                classes="w-full h-full mx-4"
-              >
-                <Image
-                  src={card.icon}
-                  alt={card.title}
-                  className="no-select-or-drag mb-4 mt-8 mr-8 inline-block w-32 rounded-md dark:bg-white"
-                  width={64}
-                  height={64}
-                  style={{
-                    float: "right",
-                    maxWidth: "48px",
-                    maxHeight: "48px",
-                  }}
-                />
-                <div className="relative px-5 pt-6 pb-8 md:px-7 md:pt-8 md:pb-10">
-                  <h3 className="mt-12 mb-2 text-2xl font-bold text-black dark:text-white md:mb-3 md:text-2xl">
-                    {card.title}
-                  </h3>
-
-                  <p className="mb-4 leading-relaxed text-purple dark:text-lightPurple md:mb-6">
-                    {card.description}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
+    <section className="section m-horizontal">
+      <h2 className="mb-6 md:mb-9">
+        <span className="h2">About Us</span>
+      </h2>
+      <div className="grid gap-8 sm:grid-cols-2 lg:gap-12 xl:grid-cols-3">
+        {ABOUT.map((card) => (
+          <Card key={card.title} borderRadius="rounded-2xl md:rounded-4xl">
+            <div className="flex flex-col px-7 pt-7 pb-8 md:px-9 md:pt-9 md:pb-12">
+              <Image
+                src={card.icon}
+                alt={card.title}
+                className="no-select-or-drag dark:filter-light-purple filter-purple mb-7 w-9 self-end md:w-12"
+              />
+              <h3 className="mb-2 text-2xl font-bold text-black dark:text-white md:mb-3 md:text-3xl">
+                {card.title}
+              </h3>
+              <p className="leading-relaxed text-purple dark:text-lightPurple">
+                {card.description}
+              </p>
+            </div>
+          </Card>
+        ))}
       </div>
     </section>
   );
