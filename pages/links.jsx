@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '../components/other/SEO';
 import Button from '../components/UI/Button';
 import echo from '../public/img/graphics/echo-profile.png';
 import externalLinkIcon from '../public/img/icons/external-link.svg';
@@ -90,6 +91,7 @@ const ICONS = [
 export default function Links() {
   return (
     <>
+      <SEO title="Links | UWaterloo Data Science Club" />
       <section className="m-horizontal section -mt-12 md:-mt-20">
         <Link href="/">
           <Image
