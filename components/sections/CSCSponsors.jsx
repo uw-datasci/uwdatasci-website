@@ -10,6 +10,8 @@ import wolframLight from '../../public/img/sponsors/wolfram-light.png';
 import wolframDark from '../../public/img/sponsors/wolfram-dark.png';
 import wyvernLight from '../../public/img/sponsors/wyvern-light.png';
 import wyvernDark from '../../public/img/sponsors/wyvern-dark.png';
+import cyclicaLight from '../../public/img/sponsors/cyclica-light.png';
+import cyclicaDark from '../../public/img/sponsors/cyclica-dark.png';
 import Image from 'next/image';
 
 const SPONSOR_LOGOS = [
@@ -18,6 +20,7 @@ const SPONSOR_LOGOS = [
   { sponsor: 'Intact', light: intactLight, dark: intactDark },
   { sponsor: 'Wolfram', light: wolframLight, dark: wolframDark },
   { sponsor: 'Wyvern', light: wyvernLight, dark: wyvernDark },
+  { sponsor: 'Cyclica', light: cyclicaLight, dark: cyclicaDark },
 ];
 
 export default function CXCSponsors() {
@@ -29,7 +32,7 @@ export default function CXCSponsors() {
         <h2 className="mb-12 text-center md:mb-16">
           <span className="h2">CXC Sponsors</span>
         </h2>
-        <div className="flex flex-wrap justify-center gap-16">
+        <div className="m-horizontal flex flex-wrap justify-center gap-12 lg:gap-24">
           {SPONSOR_LOGOS.map((logo) => (
             <Image
               src={themeContext.theme === 'light' ? logo.light : logo.dark}
