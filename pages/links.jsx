@@ -100,7 +100,7 @@ export default function Links() {
             className="no-select-or-drag mx-auto mb-9 w-[160px]"
           />
         </Link>
-        <div className="mb-20 flex flex-col gap-6">
+        <div className="mx-auto mb-20 flex max-w-[400px] flex-col gap-6">
           {MAIN_BUTTONS.map((button) => (
             <Button
               bg="bg-white dark:bg-black"
@@ -122,7 +122,7 @@ export default function Links() {
           Events
         </h3>
         <div className="mb-14">
-          <div className="mb-20 flex flex-col gap-6">
+          <div className="mx-auto mb-20 flex max-w-[400px] flex-col gap-6">
             {EVENT_BUTTONS.map((button) => (
               <Button
                 bg="bg-white dark:bg-black"
