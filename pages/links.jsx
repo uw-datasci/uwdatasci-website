@@ -110,7 +110,7 @@ export default function Links() {
               icon={button.icon ? button.icon : externalLinkIcon}
               iconAlt="open link"
               iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
-              classes="text-center narrow-button"
+              classes="text-center"
               onClick={() => window.open(button.link, '_blank')}
               key={button.title}
             >
@@ -132,7 +132,7 @@ export default function Links() {
                 icon={button.icon ? button.icon : externalLinkIcon}
                 iconAlt="open link"
                 iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
-                classes="text-center narrow-button"
+                classes="text-center"
                 onClick={() => window.open(button.link, '_blank')}
                 key={button.title}
               >

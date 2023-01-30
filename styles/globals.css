@@ -47,14 +47,6 @@ html {
     @apply black-to-purple dark:white-to-light-purple gradient-text text-3xl font-bold md:text-4xl xl:text-6xl;
   }
 
-  .narrow-button {
-    width: 33.33%;
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-  }
-
   .filter-purple {
     filter: invert(24%) sepia(12%) saturate(2200%) hue-rotate(213deg)
       brightness(94%) contrast(87%);
