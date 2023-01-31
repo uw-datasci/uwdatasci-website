@@ -13,6 +13,7 @@ import linkedinIcon from '../public/img/icons/linkedin.svg';
 import mailIcon from '../public/img/icons/mail.svg';
 import youtubeIcon from '../public/img/icons/youtube.svg';
 import discordIcon from '../public/img/icons/discord.svg';
+import tiktokIcon from '../public/img/icons/tiktok.svg';
 
 const MAIN_BUTTONS = [
   {
@@ -42,6 +43,10 @@ const MAIN_BUTTONS = [
 ];
 
 const EVENT_BUTTONS = [
+  {
+    title: 'CXC Sign Ups',
+    link: 'https://www.eventbrite.com/e/cxc-tickets-526760303247',
+  },
   {
     title: 'E-LeetCoding Registration',
     link: 'https://forms.gle/iLsnz9Xh6B3ZuE4c9',
@@ -81,11 +86,20 @@ const ICONS = [
     link: 'https://www.youtube.com/channel/UCknY88pglf2xz_S72WHIDxg',
   },
   {
+    title: 'TikTok',
+    image: tiktokIcon,
+    link: 'https://www.tiktok.com/@uwaterloodsc',
+  },
+  {
     title: 'Linkedin',
     image: linkedinIcon,
     link: 'https://www.linkedin.com/company/waterloo-data-science-club/',
   },
-  { title: 'Mail', image: mailIcon, link: 'mailto:contact@uwdatascience.ca' },
+  {
+    title: 'Mail',
+    image: mailIcon,
+    link: 'mailto:contact@uwdatascience.ca',
+  },
 ];
 
 export default function Links() {
@@ -141,7 +155,7 @@ export default function Links() {
             ))}
           </div>
         </div>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {ICONS.map((icon) => (
             <a
               href={icon.link}
