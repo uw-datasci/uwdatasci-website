@@ -27,6 +27,11 @@ const MAIN_BUTTONS = [
     icon: signIcon,
   },
   {
+    title: 'Data Den Podcast',
+    link: 'https://anchor.fm/uwdsc-dataden',
+    icon: spotifyIcon,
+  },
+  {
     title: 'Discord',
     link: 'https://discord.gg/35hK2nzxM4',
     icon: discordIcon,
