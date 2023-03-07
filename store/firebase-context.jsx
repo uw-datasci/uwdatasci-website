@@ -14,6 +14,8 @@ export function FirebaseContextProvider({ children }) {
   const [recordings, setRecordings] = useState([]);
   const [team, setTeam] = useState({});
   const [officeStatus, setOfficeStatus] = useState('no');
+  const [mainLinks, setMainLinks] = useState([]);
+  const [eventLinks, setEventLinks] = useState([]);
 
   useEffect(() => {
     const eventsRef = ref(db, 'upcomingEvents');
@@ -87,6 +89,30 @@ export function FirebaseContextProvider({ children }) {
     return unsubscribe;
   }, []);
 
+  useEffect(() => {
+    const mainLinksRef = ref(db, 'mainLinks');
+
+    const unsubscribe = onValue(mainLinksRef, (snapshot) => {
+      const mainLinks = snapshot.val();
+
+      setMainLinks(decode(mainLinks));
+    });
+
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const eventLinksRef = ref(db, 'eventLinks');
+
+    const unsubscribe = onValue(eventLinksRef, (snapshot) => {
+      const eventLinks = snapshot.val();
+
+      setEventLinks(decode(eventLinks));
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
     <FirebaseContext.Provider
       value={{
@@ -96,6 +122,8 @@ export function FirebaseContextProvider({ children }) {
         recordings,
         team,
         officeStatus,
+        mainLinks,
+        eventLinks,
       }}
     >
       {children}

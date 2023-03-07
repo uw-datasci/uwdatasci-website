@@ -1,11 +1,13 @@
+import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import FirebaseContext from '../store/firebase-context';
+import { getDataOnce } from '../lib/firebase';
 import SEO from '../components/other/SEO';
 import Button from '../components/UI/Button';
 import echo from '../public/img/graphics/echo-profile.png';
 import externalLinkIcon from '../public/img/icons/external-link.svg';
 import calendarIcon from '../public/img/icons/calendar.svg';
-import signIcon from '../public/img/icons/sign.svg';
 import globeIcon from '../public/img/icons/globe.svg';
 import instagramIcon from '../public/img/icons/instagram.svg';
 import spotifyIcon from '../public/img/icons/spotify.svg';
@@ -14,65 +16,6 @@ import mailIcon from '../public/img/icons/mail.svg';
 import youtubeIcon from '../public/img/icons/youtube.svg';
 import discordIcon from '../public/img/icons/discord.svg';
 import tiktokIcon from '../public/img/icons/tiktok.svg';
-
-const MAIN_BUTTONS = [
-  {
-    title: 'Website',
-    link: 'https://www.uwdatascience.ca/',
-    icon: globeIcon,
-  },
-  {
-    title: 'W23 Member Sign Up',
-    link: 'https://docs.google.com/forms/d/1hgSktKKF2M5aZnt1AOZ8xSZN9e_2gtIw7xomN8Tj-3c/viewform?edit_requested=true',
-    icon: signIcon,
-  },
-  {
-    title: 'Data Den Podcast',
-    link: 'https://anchor.fm/uwdsc-dataden',
-    icon: spotifyIcon,
-  },
-  {
-    title: 'Discord',
-    link: 'https://discord.gg/35hK2nzxM4',
-    icon: discordIcon,
-  },
-  {
-    title: 'Events Calendar',
-    link: 'https://bit.ly/dsc-calendar-w23',
-    icon: calendarIcon,
-  },
-  {
-    title: 'W23 Round 2 Exec Apps :)',
-    link: 'https://forms.gle/kXLXsDr56mXPcNE19',
-  },
-];
-
-const EVENT_BUTTONS = [
-  {
-    title: 'CXC Sign Ups',
-    link: 'https://www.eventbrite.com/e/cxc-tickets-526760303247',
-  },
-  {
-    title: 'E-LeetCoding Registration',
-    link: 'https://forms.gle/iLsnz9Xh6B3ZuE4c9',
-  },
-  {
-    title: 'E-LeetCoding Mentor Sign Ups',
-    link: 'https://forms.gle/5dvBccEowsbZCd7G9',
-  },
-  {
-    title: 'Snack and Social Sign Up',
-    link: 'https://forms.gle/wj2Cnh9jeKZ9Kbvg8',
-  },
-  {
-    title: 'Reading Group Session',
-    link: 'https://teams.live.com/meet/9380335784145',
-  },
-  {
-    title: 'W23 DSC BOT Slides',
-    link: 'https://docs.google.com/presentation/d/1CIgbRhsZYXUEKC97lfyoPFP2AK4uYmn8Ra38PzpoETA/edit?usp=sharing',
-  },
-];
 
 const ICONS = [
   {
@@ -107,7 +50,77 @@ const ICONS = [
   },
 ];
 
-export default function Links() {
+export default function Links({ mainLinks, eventLinks }) {
+  const [mainButtons, setMainButtons] = useState(
+    mainLinks
+      .map((link) => {
+        let icon = externalLinkIcon;
+
+        if (link.icon === 'website') {
+          icon = globeIcon;
+        } else if (link.icon === 'spotify') {
+          icon = spotifyIcon;
+        } else if (link.icon === 'discord') {
+          icon = discordIcon;
+        } else if (link.icon === 'calendar') {
+          icon = calendarIcon;
+        }
+
+        return { title: link.title, link: link.link, icon };
+      })
+      .reverse()
+  );
+
+  const [eventButtons, setEventButtons] = useState(
+    eventLinks
+      .map((link) => {
+        return { title: link.title, link: link.link, icon: externalLinkIcon };
+      })
+      .reverse()
+  );
+
+  const firebaseContext = useContext(FirebaseContext);
+
+  useEffect(() => {
+    if (firebaseContext.mainLinks.length > 0) {
+      setMainButtons(
+        firebaseContext.mainLinks
+          .map((link) => {
+            let icon = externalLinkIcon;
+
+            if (link.icon === 'website') {
+              icon = globeIcon;
+            } else if (link.icon === 'spotify') {
+              icon = spotifyIcon;
+            } else if (link.icon === 'discord') {
+              icon = discordIcon;
+            } else if (link.icon === 'calendar') {
+              icon = calendarIcon;
+            }
+
+            return { title: link.title, link: link.link, icon };
+          })
+          .reverse()
+      );
+    }
+  }, [firebaseContext.mainLinks]);
+
+  useEffect(() => {
+    if (firebaseContext.eventLinks.length > 0) {
+      setEventButtons(
+        firebaseContext.eventLinks
+          .map((link) => {
+            return {
+              title: link.title,
+              link: link.link,
+              icon: externalLinkIcon,
+            };
+          })
+          .reverse()
+      );
+    }
+  }, [firebaseContext.eventLinks]);
+
   return (
     <>
       <SEO title="Links | UWaterloo Data Science Club" />
@@ -120,7 +133,7 @@ export default function Links() {
           />
         </Link>
         <div className="mx-auto mb-20 flex max-w-[400px] flex-col gap-6">
-          {MAIN_BUTTONS.map((button) => (
+          {mainButtons.map((button) => (
             <Button
               bg="bg-white dark:bg-black"
               border="rounded-full border border-purple dark:border-lightPurple"
@@ -142,7 +155,7 @@ export default function Links() {
         </h3>
         <div className="mb-14">
           <div className="mx-auto mb-20 flex max-w-[400px] flex-col gap-6">
-            {EVENT_BUTTONS.map((button) => (
+            {eventButtons.map((button) => (
               <Button
                 bg="bg-white dark:bg-black"
                 border="rounded-full border border-purple dark:border-lightPurple"
@@ -179,4 +192,16 @@ export default function Links() {
       </section>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const mainLinks = await getDataOnce('mainLinks');
+  const eventLinks = await getDataOnce('eventLinks');
+
+  return {
+    props: {
+      mainLinks,
+      eventLinks,
+    },
+  };
 }
