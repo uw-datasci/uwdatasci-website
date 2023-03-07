@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   });
   console.log(paths);
 
-  return { paths, fallback: false };
+  return { paths, fallback: false, revalidate: 1 };
 }
 
 export async function getStaticProps(context) {
@@ -30,5 +30,5 @@ export async function getStaticProps(context) {
 
   const item = result.find((item) => item.id === id);
 
-  return { props: { link: item.link } };
+  return { props: { link: item.link }, revalidate: 1 };
 }
