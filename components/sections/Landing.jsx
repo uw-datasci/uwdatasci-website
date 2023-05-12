@@ -7,7 +7,6 @@ import OfficeClosed from "../../public/img/graphics/office_v1_close.webp";
 import OfficeOpen from "../../public/img/graphics/office_v1_open.webp";
 import OfficeStatusCard from "../cards/OfficeStatusCard";
 
-
 export default function Landing({ officeStatus }) {
   const router = useRouter();
 
@@ -60,16 +59,16 @@ export default function Landing({ officeStatus }) {
             ))}
           </div>
         </div>
-        <div className="hover:-translate-y-10 hover:scale-105 transition duration-500 ease-in-out sm:mt-10">
+        <div className="transition duration-500 ease-in-out hover:-translate-y-10 hover:scale-105 sm:mt-10">
           <Image
-            src={officeStatus ? OfficeClosed : OfficeOpen}
+            src={officeStatus === "yes" ? OfficeOpen : OfficeClosed}
             width={600}
             height={600}
             className="no-select-or-drag m-auto sm:max-w-sm lg:max-w-none"
             alt="isometric view of the data science club office"
           />
-          <OfficeStatusCard 
-            fetchedOfficeStatus={officeStatus} 
+          <OfficeStatusCard
+            officeStatus={officeStatus}
             classes="relative 2xl:bottom-2/3 2xl:left-1/3 xl:bottom-2/3 xl:left-1/3 lg:bottom-1/2 lg:left-1/3 sm:bottom-0 sm:m-auto md:w-56 sm:w-full white-to-lighter-purple dark:black-to-dark-purple"
           />
         </div>

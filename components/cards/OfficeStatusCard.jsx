@@ -1,6 +1,8 @@
 export default function OfficeStatusCard({ officeStatus, classes }) {
   return (
-    <div className={`relative rounded-full border border-lightPurple py-2.5 px-4 dark:border-purple lg:flex lg:items-center lg:gap-2 ${classes}`}>
+    <div
+      className={`relative rounded-full border border-lightPurple py-2.5 px-4 dark:border-purple lg:flex lg:items-center lg:gap-2 ${classes}`}
+    >
       <p className="text-center text-black dark:text-white">
         Office Status:{" "}
         <span className="font-semibold">
