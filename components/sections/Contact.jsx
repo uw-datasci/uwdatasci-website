@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import Image from "next/image";
 import handleSubmit from "../../utils/form-submission";
-import FirebaseContext from "../../store/firebase-context";
+import OfficeStatusCard from "../cards/OfficeStatusCard";
 import Input from "../UI/Input";
 import GradientBorder from "../UI/GradientBorder";
 import Button from "../UI/Button";
@@ -48,7 +48,7 @@ function validate(values) {
   return errors;
 }
 
-export default function Contact({ fetchedOfficeStatus }) {
+export default function Contact({ officeStatus }) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -64,16 +64,6 @@ export default function Contact({ fetchedOfficeStatus }) {
   });
 
   const [submitted, setSubmitted] = useState(false);
-
-  const firebaseContext = useContext(FirebaseContext);
-
-  const [officeStatus, setOfficeStatus] = useState(fetchedOfficeStatus);
-
-  useEffect(() => {
-    if (firebaseContext.officeStatus) {
-      setOfficeStatus(firebaseContext.officeStatus);
-    }
-  }, [firebaseContext.officeStatus]);
 
   return (
     <section
@@ -94,21 +84,7 @@ export default function Contact({ fetchedOfficeStatus }) {
           </p>
 
           <div className="lg:flex lg:flex-wrap lg:gap-5">
-            <div className="relative rounded-full border border-lightPurple py-2.5 px-4 dark:border-purple lg:flex lg:items-center lg:gap-2">
-              <p className="text-center text-black dark:text-white">
-                Office Status:{" "}
-                <span className="font-semibold">
-                  {officeStatus === "yes" ? "Open" : "Closed"}
-                </span>
-              </p>
-              <div
-                className={`absolute top-1/2 right-5 h-2 w-2 -translate-y-1/2 rounded-full lg:relative lg:right-0 lg:top-0 lg:translate-y-0 ${
-                  officeStatus === "yes"
-                    ? "bg-darkGreen dark:bg-lightGreen"
-                    : "bg-red"
-                }`}
-              />
-            </div>
+            <OfficeStatusCard officeStatus={officeStatus} />
 
             {SOCIAL_BUTTONS.map((socialButton) => (
               <a

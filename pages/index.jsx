@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from "react";
 import { getDataOnce } from "../lib/firebase";
 import SEO from "../components/other/SEO";
 import Landing from "../components/sections/Landing";
@@ -9,6 +10,8 @@ import PastEventsCarousel from "../components/sections/PastEventsCarousel";
 import MailingList from "../components/sections/MailingList";
 import Contact from "../components/sections/Contact";
 import Footer from "../components/navigation/Footer";
+import FirebaseContext from "../store/firebase-context";
+
 
 export default function Home({
   upcomingEvents,
@@ -16,6 +19,15 @@ export default function Home({
   resources,
   officeStatus,
 }) {
+  const firebaseContext = useContext(FirebaseContext);
+  const [officeStatusState, setOfficeStatus] = useState(officeStatus);
+
+  useEffect(() => {
+    if (firebaseContext.officeStatus) {
+      setOfficeStatus(firebaseContext.officeStatus);
+    }
+  }, [firebaseContext.officeStatus]);
+
   return (
     <>
       <SEO
@@ -23,14 +35,14 @@ export default function Home({
         description="Inspiring the data science leaders of the future by building an inclusive community at the University of Waterloo to bridge the gap between academics and the industry."
         keywords="University of Waterloo,Data Science,University of Waterloo Data Science Club,Waterloo Data Science,UWDSC"
       />
-      <Landing />
+      <Landing officeStatus={officeStatusState}/>
       <About />
       <Milestones />
       <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
       <ResourcesCarousel showTitle={true} fetchedResources={resources} />
       <PastEventsCarousel fetchedPastEvents={pastEvents} />
       <MailingList />
-      <Contact fetchedOfficeStatus={officeStatus} />
+      <Contact officeStatus={officeStatusState} />
       <Footer />
     </>
   );
