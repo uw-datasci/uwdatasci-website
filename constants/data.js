@@ -22,3 +22,5 @@ export const ABOUT = [
     icon: briefcaseIcon,
   },
 ];
+
+export const YES = "yes";

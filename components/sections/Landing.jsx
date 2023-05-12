@@ -6,6 +6,7 @@ import Button from "../UI/Button";
 import OfficeClosed from "../../public/img/graphics/office_v1_close.webp";
 import OfficeOpen from "../../public/img/graphics/office_v1_open.webp";
 import OfficeStatusCard from "../cards/OfficeStatusCard";
+import { YES } from "../../constants/data";
 
 export default function Landing({ officeStatus }) {
   const router = useRouter();
@@ -61,7 +62,7 @@ export default function Landing({ officeStatus }) {
         </div>
         <div className="transition duration-500 ease-in-out hover:-translate-y-10 hover:scale-105 sm:mt-10">
           <Image
-            src={officeStatus === "yes" ? OfficeOpen : OfficeClosed}
+            src={officeStatus === YES ? OfficeOpen : OfficeClosed}
             width={600}
             height={600}
             className="no-select-or-drag m-auto sm:max-w-sm lg:max-w-none"
