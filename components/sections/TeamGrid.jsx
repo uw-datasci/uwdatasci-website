@@ -43,7 +43,7 @@ export default function TeamGrid({ fetchedTeam }) {
                 image={member.image ? member.image : echo}
                 socials={{
                   website: member.website,
-                  email: `mailto:${member.email}`,
+                  email: member.email ? `mailto:${member.email}` : undefined,
                   instagram: member.instagram,
                   linkedin: member.linkedin,
                 }}
@@ -53,31 +53,6 @@ export default function TeamGrid({ fetchedTeam }) {
           </div>
         </div>
       ))}
-      {/* {Object.entries(team).map(([subteam, members]) => {
-        return (
-          <div key={subteam}>
-            <h2 className="mb-8 text-4xl font-semibold text-purple dark:text-lightPurple md:mb-12 md:text-5xl xl:text-6xl">
-              {subteam}
-            </h2>
-            <div className="flex flex-wrap justify-center gap-12 xl:gap-16">
-              {members.map((member) => (
-                <MemberCard
-                  name={member.name}
-                  position={member.position}
-                  image={member.image ? member.image : echo}
-                  socials={{
-                    website: member.website,
-                    email: member.email,
-                    instagram: member.instagram,
-                    linkedin: member.linkedin,
-                  }}
-                  key={member.name}
-                />
-              ))}
-            </div>
-          </div>
-        );
-      })} */}
     </section>
   );
 }

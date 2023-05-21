@@ -1,5 +1,6 @@
 import { getDataOnce } from '../lib/firebase';
 import SEO from '../components/other/SEO';
+import CXCSponsors from '../components/sections/CSCSponsors';
 import UpcomingEventsCarousel from '../components/sections/UpcomingEventsCarousel';
 import RecordingsCarousel from '../components/sections/RecordingsCarousel';
 import PastEventsCarousel from '../components/sections/PastEventsCarousel';
@@ -13,9 +14,10 @@ export default function Events({ upcomingEvents, pastEvents, recordings }) {
         description="Interested in attending UWaterloo Data Science Club's events? Find a list of them here."
         keywords=""
       />
-      <h1 className="mb-12 text-center  md:mb-16 md:mb-0 xl:mb-20">
+      <h1 className="mb-12 text-center md:mb-16 xl:mb-20">
         <span className="h1">Events</span>
       </h1>
+      <CXCSponsors />
       <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
       <RecordingsCarousel fetchedRecordings={recordings} />
       <PastEventsCarousel fetchedPastEvents={pastEvents} />

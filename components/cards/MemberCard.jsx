@@ -6,6 +6,8 @@ import mailIcon from '../../public/img/icons/mail.svg';
 import websiteIcon from '../../public/img/icons/globe.svg';
 
 export default function MemberCard({ name, position, socials, image }) {
+  console.log(socials);
+
   return (
     <Card borderRadius="rounded-2xl md:rounded-4xl" classes="w-[290px]">
       <div className="px-3 pt-7 pb-9 text-center">
@@ -22,7 +24,7 @@ export default function MemberCard({ name, position, socials, image }) {
         <p className="mb-5 text-lg leading-relaxed text-purple dark:text-lightPurple">
           {position}
         </p>
-        
+
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {Object.entries(socials).map(([type, link]) => {
             if (link === undefined) {

@@ -47,8 +47,8 @@ export default function MailingList() {
           <form
             name="mailing-list"
             onSubmit={formik.handleSubmit}
-            data-netlify="true"
             className="flex flex-col md:flex-row"
+            data-netlify="true"
           >
             <input
               id="email"
