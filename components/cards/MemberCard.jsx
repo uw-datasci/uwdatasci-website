@@ -6,7 +6,6 @@ import mailIcon from '../../public/img/icons/mail.svg';
 import websiteIcon from '../../public/img/icons/globe.svg';
 
 export default function MemberCard({ name, position, socials, image }) {
-  console.log(socials);
 
   return (
     <Card borderRadius="rounded-2xl md:rounded-4xl" classes="w-[290px]">

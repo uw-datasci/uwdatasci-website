@@ -1,7 +1,7 @@
-import { createContext, useEffect, useState } from 'react';
-import { ref, onValue } from 'firebase/database';
-import { db } from '../lib/firebase';
-import decode from '../utils/decode';
+import { createContext, useEffect, useState } from "react";
+import { ref, onValue } from "firebase/database";
+import { db } from "../lib/firebase";
+import decode from "../utils/decode";
 
 const FirebaseContext = createContext();
 
@@ -13,16 +13,27 @@ export function FirebaseContextProvider({ children }) {
   const [resources, setResources] = useState([]);
   const [recordings, setRecordings] = useState([]);
   const [team, setTeam] = useState({});
-  const [officeStatus, setOfficeStatus] = useState('no');
+  const [officeStatus, setOfficeStatus] = useState("no");
   const [mainLinks, setMainLinks] = useState([]);
   const [eventLinks, setEventLinks] = useState([]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    const eventsRef = ref(db, 'upcomingEvents');
+    const eventsRef = ref(db, "events");
 
     const unsubscribe = onValue(eventsRef, (snapshot) => {
-      const encodedUpcomingEvents = snapshot.val();
+      const encodedEvents = snapshot.val();
 
+      setEvents(decode(encodedEvents));
+    });
+
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const eventsRef = ref(db, "upcomingEvents");
+    const unsubscribe = onValue(eventsRef, (snapshot) => {
+      const encodedUpcomingEvents = snapshot.val();
       setUpcomingEvents(decode(encodedUpcomingEvents));
     });
 
@@ -30,7 +41,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const eventsRef = ref(db, 'pastEvents');
+    const eventsRef = ref(db, "pastEvents");
 
     const unsubscribe = onValue(eventsRef, (snapshot) => {
       const encodedPastEvents = snapshot.val();
@@ -42,7 +53,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const resourcesRef = ref(db, 'resources');
+    const resourcesRef = ref(db, "resources");
 
     const unsubscribe = onValue(resourcesRef, (snapshot) => {
       const encodedResources = snapshot.val();
@@ -54,7 +65,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const recordingsRef = ref(db, 'recordings');
+    const recordingsRef = ref(db, "recordings");
 
     const unsubscribe = onValue(recordingsRef, (snapshot) => {
       const encodedRecordings = snapshot.val();
@@ -66,7 +77,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const teamRef = ref(db, 'team');
+    const teamRef = ref(db, "team");
 
     const unsubscribe = onValue(teamRef, (snapshot) => {
       const encodedTeam = snapshot.val();
@@ -78,7 +89,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const officeStatusRef = ref(db, 'officeStatus');
+    const officeStatusRef = ref(db, "officeStatus");
 
     const unsubscribe = onValue(officeStatusRef, (snapshot) => {
       const officeStatus = snapshot.val();
@@ -90,7 +101,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const mainLinksRef = ref(db, 'mainLinks');
+    const mainLinksRef = ref(db, "mainLinks");
 
     const unsubscribe = onValue(mainLinksRef, (snapshot) => {
       const mainLinks = snapshot.val();
@@ -102,7 +113,7 @@ export function FirebaseContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const eventLinksRef = ref(db, 'eventLinks');
+    const eventLinksRef = ref(db, "eventLinks");
 
     const unsubscribe = onValue(eventLinksRef, (snapshot) => {
       const eventLinks = snapshot.val();
@@ -124,6 +135,7 @@ export function FirebaseContextProvider({ children }) {
         officeStatus,
         mainLinks,
         eventLinks,
+        events
       }}
     >
       {children}
