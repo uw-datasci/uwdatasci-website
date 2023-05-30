@@ -1,9 +1,13 @@
 import { useState, useEffect, useContext } from "react";
-
-import { getDataOnce, createEvent, removeEvent, modifyEvent } from "../lib/firebase";
+import {
+  getDataOnce,
+  createEvent,
+  removeEvent,
+  modifyEvent,
+} from "../lib/firebase";
 import FirebaseContext from "../store/firebase-context";
 
-import { events_mock, DEFAULT_EVENT } from "../constants/events";
+import { DEFAULT_EVENT } from "../constants/events";
 import Button from "../components/UI/Button";
 
 function processEvents(events) {
@@ -92,7 +96,7 @@ function EventsEditableHeader() {
         <th className="min-w-[30rem] px-6 py-4">Description</th>
         <th className="min-w-[10rem] px-6 py-4">Time</th>
         <th className="min-w-[10rem] px-6 py-4">Location</th>
-        <th className="px-6 py-4">Image</th>
+        <th className="min-w-[10rem] px-6 py-4">Image</th>
         <th className="max-w-[30rem] px-6 py-4">Link</th>
       </tr>
     </thead>
@@ -110,8 +114,20 @@ function EventsEditableRow({ event: eventObject }) {
   }, [eventObject]);
 
   const handleTextChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    const { name } = event.target;
+    let { value } = event.target;
+
+    if (name === "time_to") {
+      value = `${formData["time"].split("TO")[0]}TO${value}`;
+    } else if (name === "time_from") {
+      value = `${value}TO${formData["time"].split("TO")[0]}`;
+    }
+
+    if (name === "time_to" || name === "time_from") {
+      setFormData((prevFormData) => ({ ...prevFormData, ["time"]: value }));
+    } else {
+      setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    }
   };
 
   const onClickText = () => {
@@ -121,6 +137,7 @@ function EventsEditableRow({ event: eventObject }) {
   const handleSubmit = (event) => {
     event.stopPropagation();
     setActiveEdit(false);
+    console.log(formData);
     modifyEvent(idx, formData);
   };
 
@@ -132,6 +149,7 @@ function EventsEditableRow({ event: eventObject }) {
 
   const handleDelete = (event) => {
     event.stopPropagation();
+    setActiveEdit(false);
     const confirmed = window.confirm(
       "Do you REALLY want to delete this event?"
     );
@@ -233,18 +251,50 @@ function EventsEditableRow({ event: eventObject }) {
 }
 
 function EditableBox({ fieldName, fieldValue, editable, onChange }) {
-  return editable ? (
-    <textarea
-      type="text"
-      className="peer-focus:text-primary dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-      id={`${fieldName}`}
-      rows="6"
-      cols="40"
-      value={fieldValue}
-      onChange={onChange}
-      name={fieldName}
-    />
-  ) : (
-    fieldValue
-  );
+  const renderFieldvalue = () => {
+    if (fieldName === "image" && fieldValue && fieldValue != "<IMAGE>") {
+      return <img src={fieldValue} />;
+    } else if (fieldName === "time" && fieldValue.includes("TO")) {
+      return `${fieldValue.split("TO")[0]} - ${fieldValue.split("TO")[1]}`;
+    } else {
+      return fieldValue;
+    }
+  };
+
+  if (editable) {
+    if (fieldName === "time") {
+      return (
+        <>
+          <input
+            className="peer-focus:text-primary dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none"
+            type="datetime-local"
+            name="time_from"
+            onChange={onChange}
+            value={fieldValue.split("TO")[0]}
+          />
+          <input
+            className="peer-focus:text-primary dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none"
+            type="datetime-local"
+            name="time_to"
+            onChange={onChange}
+            value={fieldValue.split("TO")[1]}
+          />
+        </>
+      );
+    }
+    return (
+      <textarea
+        type="text"
+        className="peer-focus:text-primary dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+        id={`${fieldName}`}
+        rows="6"
+        cols="40"
+        value={fieldValue}
+        onChange={onChange}
+        name={fieldName}
+      />
+    );
+  } else {
+    return renderFieldvalue();
+  }
 }
