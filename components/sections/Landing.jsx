@@ -67,6 +67,7 @@ export default function Landing({ officeStatus }) {
             height={600}
             className="no-select-or-drag m-auto sm:max-w-sm lg:max-w-none"
             alt="isometric view of the data science club office"
+            unoptimized={true}
           />
           <OfficeStatusCard
             officeStatus={officeStatus}
