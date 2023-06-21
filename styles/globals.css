@@ -11,6 +11,10 @@ html {
     @apply mx-5 xs:mx-7 sm:mx-9 xl:mx-16 3xl:mx-auto 3xl:max-w-[1280px];
   }
 
+  .m-horizontal-third {
+    @apply mx-auto xs:max-w-[350px] sm:max-w-[400px] xl:mx-auto xl:max-w-[500px] 3xl:mx-auto 3xl:max-w-[500px];
+  }
+
   .section {
     @apply mb-25 md:mb-40;
   }
@@ -37,6 +41,14 @@ html {
 
   .white-to-lighter-purple {
     @apply bg-gradient-to-br from-white to-lighterPurple;
+  }
+
+  .dark-purple {
+    @apply bg-gradient-to-br from-black to-black;
+  }
+
+  .white {
+    @apply bg-gradient-to-br from-white to-white;
   }
 
   .h1 {
