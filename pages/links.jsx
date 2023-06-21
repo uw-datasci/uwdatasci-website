@@ -123,26 +123,26 @@ export default function Links({ mainLinks, eventLinks }) {
 
   return (
     <>
-      <SEO title="Links | UWaterloo Data Science Club" />
-      <section className="m-horizontal section -mt-12 md:-mt-20">
-        <Link href="/">
+      <SEO title='Links | UWaterloo Data Science Club' />
+      <section className='m-horizontal section -mt-12 md:-mt-20'>
+        <Link href='/'>
           <Image
             src={echo}
-            alt="echo icon"
-            className="no-select-or-drag mx-auto mb-9 w-[160px]"
+            alt='echo icon'
+            className='no-select-or-drag mx-auto mb-9 w-[160px]'
           />
         </Link>
-        <div className="mx-auto mb-20 flex max-w-[400px] flex-col gap-6">
+        <div className='mx-auto mb-20 flex max-w-[400px] flex-col gap-6'>
           {mainButtons.map((button) => (
             <Button
-              bg="bg-white dark:bg-black"
-              border="rounded-full border border-purple dark:border-lightPurple"
-              py="py-2.5"
-              font="text-black dark:text-white"
+              bg='bg-white dark:bg-black'
+              border='rounded-full border border-purple dark:border-lightPurple'
+              py='py-2.5'
+              font='text-black dark:text-white'
               icon={button.icon ? button.icon : externalLinkIcon}
-              iconAlt="open link"
-              iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
-              classes="text-center"
+              iconAlt='open link'
+              iconClasses='no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple'
+              classes='text-center'
               onClick={() => window.open(button.link, '_blank')}
               key={button.title}
             >
@@ -150,21 +150,21 @@ export default function Links({ mainLinks, eventLinks }) {
             </Button>
           ))}
         </div>
-        <h3 className="mb-6 text-center text-2xl font-bold text-black dark:text-white md:mb-6 md:text-3xl">
+        <h3 className='mb-6 text-center text-2xl font-bold text-black dark:text-white md:mb-6 md:text-3xl'>
           Events
         </h3>
-        <div className="mb-14">
-          <div className="mx-auto mb-20 flex max-w-[400px] flex-col gap-6">
+        <div className='mb-14'>
+          <div className='mx-auto mb-20 flex max-w-[400px] flex-col gap-6'>
             {eventButtons.map((button) => (
               <Button
-                bg="bg-white dark:bg-black"
-                border="rounded-full border border-purple dark:border-lightPurple"
-                py="py-2.5"
-                font="text-black dark:text-white"
+                bg='bg-white dark:bg-black'
+                border='rounded-full border border-purple dark:border-lightPurple'
+                py='py-2.5'
+                font='text-black dark:text-white'
                 icon={button.icon ? button.icon : externalLinkIcon}
-                iconAlt="open link"
-                iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
-                classes="text-center"
+                iconAlt='open link'
+                iconClasses='no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple'
+                classes='text-center'
                 onClick={() => window.open(button.link, '_blank')}
                 key={button.title}
               >
@@ -173,18 +173,18 @@ export default function Links({ mainLinks, eventLinks }) {
             ))}
           </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className='flex flex-wrap justify-center gap-4'>
           {ICONS.map((icon) => (
             <a
               href={icon.link}
               key={icon.title}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
             >
               <Image
                 src={icon.image}
                 alt={icon.title}
-                className="filter-purple dark:filter-light-purple w-9"
+                className='filter-purple dark:filter-light-purple w-9'
               />
             </a>
           ))}
@@ -194,7 +194,7 @@ export default function Links({ mainLinks, eventLinks }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const mainLinks = await getDataOnce('mainLinks');
   const eventLinks = await getDataOnce('eventLinks');
 
