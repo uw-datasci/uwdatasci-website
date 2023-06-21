@@ -26,11 +26,11 @@ export default function Home({
       <Landing />
       <About />
       <Milestones />
-      <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
-      <ResourcesCarousel showTitle={true} fetchedResources={resources} />
-      <PastEventsCarousel fetchedPastEvents={pastEvents} />
+      <UpcomingEventsCarousel upcomingEvents={upcomingEvents} />
+      <ResourcesCarousel showTitle={true} resources={resources} />
+      <PastEventsCarousel pastEvents={pastEvents} />
       <MailingList />
-      <Contact fetchedOfficeStatus={officeStatus} />
+      <Contact officeStatus={officeStatus} />
       <Footer />
     </>
   );

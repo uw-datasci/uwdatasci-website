@@ -16,9 +16,9 @@ export default function Resources({ resources, recordings }) {
       <h1 className='mb-6 text-center md:mb-0'>
         <span className='h1'>Resources</span>
       </h1>
-      <ResourcesCarousel fetchedResources={resources} />
+      <ResourcesCarousel resources={resources} />
       {/* <Podcast /> */}
-      <RecordingsCarousel fetchedRecordings={recordings} />
+      <RecordingsCarousel recordings={recordings} />
       <Footer />
     </>
   );

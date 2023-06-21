@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import FirebaseContext from '../store/firebase-context';
 import { getDataOnce } from '../lib/firebase';
 import SEO from '../components/other/SEO';
 import Button from '../components/UI/Button';
@@ -51,75 +50,29 @@ const ICONS = [
 ];
 
 export default function Links({ mainLinks, eventLinks }) {
-  const [mainButtons, setMainButtons] = useState(
-    mainLinks
-      .map((link) => {
-        let icon = externalLinkIcon;
+  const mainButtons = mainLinks
+    .map((link) => {
+      let icon = externalLinkIcon;
 
-        if (link.icon === 'website') {
-          icon = globeIcon;
-        } else if (link.icon === 'spotify') {
-          icon = spotifyIcon;
-        } else if (link.icon === 'discord') {
-          icon = discordIcon;
-        } else if (link.icon === 'calendar') {
-          icon = calendarIcon;
-        }
+      if (link.icon === 'website') {
+        icon = globeIcon;
+      } else if (link.icon === 'spotify') {
+        icon = spotifyIcon;
+      } else if (link.icon === 'discord') {
+        icon = discordIcon;
+      } else if (link.icon === 'calendar') {
+        icon = calendarIcon;
+      }
 
-        return { title: link.title, link: link.link, icon };
-      })
-      .reverse()
-  );
+      return { title: link.title, link: link.link, icon };
+    })
+    .reverse();
 
-  const [eventButtons, setEventButtons] = useState(
-    eventLinks
-      .map((link) => {
-        return { title: link.title, link: link.link, icon: externalLinkIcon };
-      })
-      .reverse()
-  );
-
-  const firebaseContext = useContext(FirebaseContext);
-
-  useEffect(() => {
-    if (firebaseContext.mainLinks.length > 0) {
-      setMainButtons(
-        firebaseContext.mainLinks
-          .map((link) => {
-            let icon = externalLinkIcon;
-
-            if (link.icon === 'website') {
-              icon = globeIcon;
-            } else if (link.icon === 'spotify') {
-              icon = spotifyIcon;
-            } else if (link.icon === 'discord') {
-              icon = discordIcon;
-            } else if (link.icon === 'calendar') {
-              icon = calendarIcon;
-            }
-
-            return { title: link.title, link: link.link, icon };
-          })
-          .reverse()
-      );
-    }
-  }, [firebaseContext.mainLinks]);
-
-  useEffect(() => {
-    if (firebaseContext.eventLinks.length > 0) {
-      setEventButtons(
-        firebaseContext.eventLinks
-          .map((link) => {
-            return {
-              title: link.title,
-              link: link.link,
-              icon: externalLinkIcon,
-            };
-          })
-          .reverse()
-      );
-    }
-  }, [firebaseContext.eventLinks]);
+  const eventButtons = eventLinks
+    .map((link) => {
+      return { title: link.title, link: link.link, icon: externalLinkIcon };
+    })
+    .reverse();
 
   return (
     <>

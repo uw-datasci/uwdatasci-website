@@ -18,9 +18,9 @@ export default function Events({ upcomingEvents, pastEvents, recordings }) {
         <span className='h1'>Events</span>
       </h1>
       <CXCSponsors />
-      <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
-      <RecordingsCarousel fetchedRecordings={recordings} />
-      <PastEventsCarousel fetchedPastEvents={pastEvents} />
+      <UpcomingEventsCarousel upcomingEvents={upcomingEvents} />
+      <RecordingsCarousel recordings={recordings} />
+      <PastEventsCarousel pastEvents={pastEvents} />
       <Footer />
     </>
   );

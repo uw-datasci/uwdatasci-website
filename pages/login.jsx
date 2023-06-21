@@ -98,7 +98,7 @@ export default function Login() {
                 inputType='textinput'
                 id='password'
                 name='password'
-                type='text'
+                type={showPassword ? 'text' : 'password'}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
@@ -107,6 +107,7 @@ export default function Login() {
               <Image
                 src={eyeIcon}
                 alt='eye icon'
+                onClick={() => setShowPassword(!showPassword)}
                 className='filter-purple dark:filter-light-purple absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 cursor-pointer'
               />
             </div>
