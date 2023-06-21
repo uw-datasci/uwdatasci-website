@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { auth } from '../lib/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -6,6 +7,7 @@ import SEO from '../components/other/SEO';
 import Button from '../components/UI/Button';
 import Input from '../components/UI/Input';
 import eyeIcon from '../public/img/icons/eye.svg';
+import Image from 'next/image';
 
 function validate(values) {
   const errors = {};
@@ -23,14 +25,42 @@ function validate(values) {
 }
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     validate,
-    onSubmit: (values, actions) => {
-      console.log('submitted');
+    onSubmit: async (values, actions) => {
+      setError('');
+      try {
+        await signInWithEmailAndPassword(auth, values.email, values.password);
+        router.push('/dashboard/events');
+      } catch (error) {
+        console.error(error);
+        switch (error.code) {
+          case 'auth/invalid-email':
+            setError('Invalid email address.');
+            break;
+          case 'auth/user-disabled':
+            setError('This account has been disabled.');
+            break;
+          case 'auth/user-not-found':
+            setError('This account does not exist.');
+            break;
+          case 'auth/wrong-password':
+            setError('Incorrect password.');
+            break;
+          default:
+            setError('An unknown error occurred.');
+            break;
+        }
+      }
     },
   });
 
@@ -47,7 +77,7 @@ export default function Login() {
           data-netlify='true'
           className='mx-auto max-w-[440px]'
         >
-          <div className='mb-5'>
+          <div className='mb-6'>
             <Input
               inputType='textinput'
               id='email'
@@ -59,27 +89,31 @@ export default function Login() {
               placeholder='Email'
             />
             {formik.touched.email && formik.errors.email ? (
-              <p className='mt-3 text-sm text-red lg:mt-4 lg:text-base'>
-                {formik.errors.email}
-              </p>
+              <p className='mt-5 text-red'>{formik.errors.email}</p>
             ) : null}
           </div>
           <div className='mb-16'>
-            <Input
-              inputType='textinput'
-              id='password'
-              name='password'
-              type='text'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-              placeholder='Password'
-            />
+            <div className='relative'>
+              <Input
+                inputType='textinput'
+                id='password'
+                name='password'
+                type='text'
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+                placeholder='Password'
+              />
+              <Image
+                src={eyeIcon}
+                alt='eye icon'
+                className='filter-purple dark:filter-light-purple absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 cursor-pointer'
+              />
+            </div>
             {formik.touched.password && formik.errors.password ? (
-              <p className='mt-3 text-sm text-red lg:mt-4 lg:text-base'>
-                {formik.errors.password}
-              </p>
+              <p className='mt-5 text-red'>{formik.errors.password}</p>
             ) : null}
+            {error && <p className='mt-5 text-red'>{error}</p>}
           </div>
           <Button
             bg='bg-purple dark:bg-lightPurple'
