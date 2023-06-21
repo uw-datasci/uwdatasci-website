@@ -7,6 +7,7 @@ import resourcesIcon from '../../public/img/icons/resources.svg';
 import teamIcon from '../../public/img/icons/team.svg';
 import Image from 'next/image';
 import { signOut } from 'firebase/auth';
+import { auth } from '../../lib/firebase';
 
 export default function DashboardMenu() {
   const menuOpenContext = useContext(MenuOpenContext);
@@ -68,7 +69,7 @@ export default function DashboardMenu() {
       <MenuItem
         label='Log Out'
         onClick={() => {
-          signOut();
+          signOut(auth);
           router.push('/');
         }}
         classes='mb-8'
