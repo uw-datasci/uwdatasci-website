@@ -45,7 +45,7 @@ export default function Events({ events }) {
           {events ? (
             <EventsEditableTable events={listOfEvents} />
           ) : (
-            <div>No events lool</div>
+            <div className="mb-3 md:mb-6 dark:text-lightPurple">No events lool</div>
           )}
           <Button
             bg="bg-white dark:bg-black"
