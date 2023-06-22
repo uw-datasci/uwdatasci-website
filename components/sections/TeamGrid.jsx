@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from 'react';
-import FirebaseContext from '../../store/firebase-context';
 import MemberCard from '../cards/MemberCard';
 import echo from '../../public/img/graphics/echo-profile.png';
 
@@ -17,25 +15,15 @@ const ORDER = [
   'Social Media',
 ];
 
-export default function TeamGrid({ fetchedTeam }) {
-  const firebaseContext = useContext(FirebaseContext);
-
-  const [team, setTeam] = useState(fetchedTeam);
-
-  useEffect(() => {
-    if (firebaseContext.team !== {}) {
-      setTeam(firebaseContext.team);
-    }
-  }, [firebaseContext.team]);
-
+export default function TeamGrid({ team }) {
   return (
-    <section className="section m-horizontal grid gap-25 text-center md:gap-40">
+    <section className='section m-horizontal grid gap-25 text-center md:gap-40'>
       {ORDER.map((subteam) => (
         <div key={subteam}>
-          <h2 className="mb-8 text-4xl font-semibold text-purple dark:text-lightPurple md:mb-12 md:text-5xl xl:text-6xl">
+          <h2 className='mb-8 text-4xl font-semibold text-purple dark:text-lightPurple md:mb-12 md:text-5xl xl:text-6xl'>
             {subteam}
           </h2>
-          <div className="flex flex-wrap justify-center gap-12 xl:gap-16">
+          <div className='flex flex-wrap justify-center gap-12 xl:gap-16'>
             {team[subteam]?.map((member) => (
               <MemberCard
                 name={member.name}
