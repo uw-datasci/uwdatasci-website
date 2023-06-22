@@ -5,7 +5,6 @@ import {
   removeEvent,
   modifyEvent,
 } from "../../lib/firebase";
-// import FirebaseContext from "../store/firebase-context";
 
 import { DEFAULT_EVENT } from "../../constants/events";
 import Button from "../../components/UI/Button";
@@ -23,16 +22,14 @@ export default function Events({ events }) {
   // const events = events_mock;
   const [listOfEvents, setListOfEvents] = useState(processEvents(events));
 
-  // const firebaseContext = useContext(FirebaseContext);
-
-  // useEffect(() => {
-  //   if (firebaseContext.events) {
-  //     setListOfEvents(processEvents(firebaseContext.events));
-  //   }
-  // }, [firebaseContext.events]);
+  const refetchEvents = async () => {
+      const fetchedEvents = await getDataOnce("events");
+      setListOfEvents(processEvents(fetchedEvents));
+  }
 
   const handleAddEvent = () => {
     createEvent(DEFAULT_EVENT);
+    refetchEvents();
   };
 
   return (
@@ -43,7 +40,7 @@ export default function Events({ events }) {
         </h2>
         <div className="overflow-x-auto">
           {events ? (
-            <EventsEditableTable events={listOfEvents} />
+            <EventsEditableTable events={listOfEvents} refetchEvents={refetchEvents}/>
           ) : (
             <div className="mb-3 md:mb-6 dark:text-lightPurple">No events lool</div>
           )}
@@ -74,14 +71,14 @@ export async function getStaticProps() {
   };
 }
 
-function EventsEditableTable({ events }) {
+function EventsEditableTable({ events, refetchEvents }) {
   return (
     <table className="min-w-full table-fixed">
       <EventsEditableHeader />
       <tbody>
         {events.length &&
           events.map((event, idx) => (
-            <EventsEditableRow event={event} key={`event_${idx}`} />
+            <EventsEditableRow event={event} key={`event_${idx}`} refetchEvents={refetchEvents}/>
           ))}
       </tbody>
     </table>
@@ -103,7 +100,7 @@ function EventsEditableHeader() {
   );
 }
 
-function EventsEditableRow({ event: eventObject }) {
+function EventsEditableRow({ event: eventObject, refetchEvents }) {
   const { title, desc, time, location, image, link, idx } = eventObject;
 
   const [activeEdit, setActiveEdit] = useState(false);
@@ -139,6 +136,7 @@ function EventsEditableRow({ event: eventObject }) {
     setActiveEdit(false);
     console.log(formData);
     modifyEvent(idx, formData);
+    refetchEvents();
   };
 
   const handleCancel = (event) => {
@@ -156,6 +154,7 @@ function EventsEditableRow({ event: eventObject }) {
     if (confirmed) {
       removeEvent(idx);
     }
+    refetchEvents();
   };
 
   return (
