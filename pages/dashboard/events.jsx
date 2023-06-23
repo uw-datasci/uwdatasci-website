@@ -11,17 +11,29 @@ import Button from "../../components/UI/Button";
 
 function processEvents(events) {
   const remappedEvents = Object.keys(events)
-    .reverse()
     .map((key) => {
       return { idx: key, ...events[key] };
+    }).sort((a,b)=>{
+      console.log(a.time);
+      if (a.time === "<EVENT TIME>"){
+        return 1;
+      }
+      if (b.time === "<EVENT TIME>"){
+        return -1;
+      }
+      const aTime = new Date(a.time.split("TO")[1]);
+      const bTime = new Date(b.time.split("TO")[1]);
+      return aTime > bTime ? -1 : 1;
     });
   return remappedEvents;
 }
 
 export default function Events({ events }) {
   // const events = events_mock;
-  const [listOfEvents, setListOfEvents] = useState(processEvents(events));
-
+  const [listOfEvents, setListOfEvents] = useState();
+useEffect(()=>{
+  setListOfEvents(processEvents(events));
+},[])
   const refetchEvents = async () => {
       const fetchedEvents = await getDataOnce("events");
       setListOfEvents(processEvents(fetchedEvents));
@@ -76,7 +88,7 @@ function EventsEditableTable({ events, refetchEvents }) {
     <table className="min-w-full table-fixed">
       <EventsEditableHeader />
       <tbody>
-        {events.length &&
+        {events?.length &&
           events.map((event, idx) => (
             <EventsEditableRow event={event} key={`event_${idx}`} refetchEvents={refetchEvents}/>
           ))}
