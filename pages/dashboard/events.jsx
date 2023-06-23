@@ -107,13 +107,14 @@ function EventsEditableHeader() {
         <th className="min-w-[10rem] px-6 py-4">Location</th>
         <th className="min-w-[10rem] px-6 py-4">Image</th>
         <th className="max-w-[30rem] px-6 py-4">Link</th>
+        <th className="max-w-[30rem] px-6 py-4">Recording Link</th>
       </tr>
     </thead>
   );
 }
 
 function EventsEditableRow({ event: eventObject, refetchEvents }) {
-  const { title, desc, time, location, image, link, idx } = eventObject;
+  const { title, desc, time, location, image, link, recording, idx } = eventObject;
 
   const [activeEdit, setActiveEdit] = useState(false);
   const [formData, setFormData] = useState(eventObject);
@@ -252,6 +253,14 @@ function EventsEditableRow({ event: eventObject, refetchEvents }) {
           <EditableBox
             fieldName="link"
             fieldValue={formData.link}
+            editable={activeEdit}
+            onChange={handleTextChange}
+          />
+        </td>
+        <td className="py-3 px-2">
+          <EditableBox
+            fieldName="recording"
+            fieldValue={formData.recording}
             editable={activeEdit}
             onChange={handleTextChange}
           />
