@@ -31,6 +31,7 @@ const DEFAULT_EVENT = {
     time: "<EVENT TIME>",
     location: "<LOCATION>",
     image: "<IMAGE>", 
-    link: "<REGISTRATION LINK>"
+    link: "<REGISTRATION LINK>",
+    recording_link: "<RECORDING LINK>"
 }
 export {events_mock, DEFAULT_EVENT};
