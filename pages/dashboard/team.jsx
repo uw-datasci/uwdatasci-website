@@ -35,6 +35,8 @@ export default function Team({ team }) {
     { title: "Name", classes: "min-w-[10rem]", key: "name" },
     { title: "Position", classes: "min-w-[30rem]", key: "title" },
     { title: "Subteam", classes: "max-w-[30rem]", key: "subteam" },
+    { title: "Image", classes: "min-w-[10rem]", key: "image" },
+    { title: "LinkedIn", classes: "max-w-[30rem]", key: "linkedin" },
   ];
 
   return (
