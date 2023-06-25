@@ -31,7 +31,7 @@ export default function Events({ events }) {
   const [listOfEvents, setListOfEvents] = useState();
 
   useEffect(() => {
-    const eventsRef = ref(db, "events");
+    const eventsRef = ref(db, dbName);
     const unsubscribe = onValue(eventsRef, (snapshot) => {
       const encodedEvents = snapshot.val();
       setListOfEvents(processEvents(decode(encodedEvents)));

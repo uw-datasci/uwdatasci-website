@@ -23,7 +23,7 @@ export default function Resources({ resources }) {
   const [listOfResources, setListOfResources] = useState();
 
   useEffect(() => {
-    const resourcesRef = ref(db, "resources");
+    const resourcesRef = ref(db, dbName);
     const unsubscribe = onValue(resourcesRef, (snapshot) => {
       const encodedResources = snapshot.val();
       setListOfResources(processResources(decode(encodedResources)));
