@@ -60,13 +60,3 @@ export default function Events({ events }) {
   );
 }
 
-export async function getStaticProps() {
-  const events = processEvents(await getDataOnce(dbName));
-
-  return {
-    props: {
-      events,
-    },
-    revalidate: 1,
-  };
-}

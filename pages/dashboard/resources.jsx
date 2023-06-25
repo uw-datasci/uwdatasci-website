@@ -47,14 +47,3 @@ export default function Resources({ resources }) {
     />
   );
 }
-
-export async function getStaticProps() {
-  const resources = processResources(await getDataOnce(dbName));
-
-  return {
-    props: {
-      resources,
-    },
-    revalidate: 1,
-  };
-}
