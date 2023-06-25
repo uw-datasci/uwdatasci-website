@@ -1,16 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
-import {
-  getDataOnce,
-  createEvent,
-  removeEvent,
-  modifyEvent,
-  db,
-} from "../../lib/firebase";
+import { getDataOnce, db } from "../../lib/firebase";
 import decode from "../../utils/decode";
 
 import { DEFAULT_EVENT } from "../../constants/events";
 import EditableTable from "../../components/UI/EditableTable";
+
+const dbName = "events";
 
 function processEvents(events) {
   const remappedEvents = Object.keys(events)
@@ -56,18 +52,16 @@ export default function Events({ events }) {
   return (
     <EditableTable
       tableTitle="Events"
+      dbName={dbName}
       dataList={listOfEvents}
       defaultData={DEFAULT_EVENT}
-      createData={createEvent}
-      removeData={removeEvent}
-      modifyData={modifyEvent}
       headers={eventHeaders}
     />
   );
 }
 
 export async function getStaticProps() {
-  const events = processEvents(await getDataOnce("events"));
+  const events = processEvents(await getDataOnce(dbName));
 
   return {
     props: {

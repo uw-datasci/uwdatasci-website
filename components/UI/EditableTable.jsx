@@ -1,18 +1,17 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { createData, modifyData, removeData } from "../../lib/firebase";
 import Button from "../../components/UI/Button";
 
 export default function EditableTable({
   tableTitle,
   dataList,
+  dbName,
   defaultData,
-  createData,
-  removeData,
-  modifyData,
   headers,
 }) {
 
   const handleAddData = () => {
-    createData(defaultData);
+    createData(dbName, defaultData);
   };
 
   return (
@@ -32,8 +31,7 @@ export default function EditableTable({
                       datum={datum}
                       headers={headers}
                       key={`datum_${tableTitle}_${idx}`}
-                      removeData={removeData}
-                      modifyData={modifyData}
+                      dbName={dbName}
                     />
                   ))}
               </tbody>
@@ -73,7 +71,7 @@ function EditableHeader({ headers }) {
   );
 }
 
-function EditableRow({ datum, headers, removeData, modifyData }) {
+function EditableRow({ datum, headers, dbName }) {
   const [activeEdit, setActiveEdit] = useState(false);
   const [formData, setFormData] = useState(datum);
 
@@ -105,7 +103,7 @@ function EditableRow({ datum, headers, removeData, modifyData }) {
   const handleSubmit = (event) => {
     event.stopPropagation();
     setActiveEdit(false);
-    modifyData(datum.idx, formData);
+    modifyData(dbName, datum.idx, formData);
   };
 
   const handleCancel = (event) => {
@@ -119,7 +117,7 @@ function EditableRow({ datum, headers, removeData, modifyData }) {
     setActiveEdit(false);
     const confirmed = window.confirm("Do you REALLY want to delete this?");
     if (confirmed) {
-      removeData(datum.idx);
+      removeData(dbName, datum.idx);
     }
   };
 
