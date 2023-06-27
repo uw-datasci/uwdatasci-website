@@ -9,7 +9,6 @@ export default function EditableTable({
   defaultData,
   headers,
 }) {
-
   const handleAddData = () => {
     createData(dbName, defaultData);
   };
@@ -187,6 +186,15 @@ function EditableRow({ datum, headers, dbName }) {
 function EditableBox({ fieldName, fieldValue, editable, onChange }) {
   const renderFieldvalue = () => {
     if (fieldName === "image" && fieldValue && fieldValue != "<IMAGE>") {
+      if (fieldValue.includes("drive.google.com")) {
+        let id;
+        if (fieldValue.includes("open")) {
+          // https://drive.google.com/open?id=<id>
+        } else if (fieldValue.includes("view?usp=sharing")) {
+          // https://drive.google.com/file/d/1m3pn2eLa73uMBs54_5ay7x1r0XapFlQJ/view?usp=sharing
+        }
+        return <img src={`https://drive.google.com/uc?export=view&id=${id}`} />;
+      }
       return <img src={fieldValue} />;
     } else if (fieldName === "time" && fieldValue.includes("TO")) {
       return `${fieldValue.split("TO")[0]} - ${fieldValue.split("TO")[1]}`;

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
-import { getDataOnce, db } from "../../lib/firebase";
+import { createData, db } from "../../lib/firebase";
 import decode from "../../utils/decode";
 
 import { DEFAULT_MEMBER } from "../../constants/team";
+import CSVImportButton from "../../components/UI/CSVImportButton";
 import EditableTable from "../../components/UI/EditableTable";
 
 const dbName = "people";
@@ -40,12 +41,15 @@ export default function Team({ team }) {
   ];
 
   return (
-    <EditableTable
-      tableTitle="Team"
-      dataList={listOfMembers}
-      defaultData={DEFAULT_MEMBER}
-      dbName={dbName}
-      headers={memberHeaders}
-    />
+    <>
+      <CSVImportButton uploadData={(data) => createData(dbName, data)} />
+      <EditableTable
+        tableTitle="Team"
+        dataList={listOfMembers}
+        defaultData={DEFAULT_MEMBER}
+        dbName={dbName}
+        headers={memberHeaders}
+      />
+    </>
   );
 }
