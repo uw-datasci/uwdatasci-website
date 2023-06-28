@@ -195,7 +195,7 @@ function EditableBox({ fieldName, fieldValue, editable, onChange }) {
         }
         return <img src={`https://drive.google.com/uc?export=view&id=${id}`} />;
       }
-      return <img src={fieldValue} />;
+      return <img src={fieldValue} width="170px" />;
     } else if (fieldName === "time" && fieldValue.includes("TO")) {
       return `${fieldValue.split("TO")[0]} - ${fieldValue.split("TO")[1]}`;
     } else {

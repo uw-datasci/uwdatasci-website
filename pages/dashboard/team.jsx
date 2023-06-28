@@ -42,7 +42,6 @@ export default function Team({ team }) {
 
   return (
     <>
-      <CSVImportButton uploadData={(data) => createData(dbName, data)} />
       <EditableTable
         tableTitle="Team"
         dataList={listOfMembers}
@@ -50,6 +49,7 @@ export default function Team({ team }) {
         dbName={dbName}
         headers={memberHeaders}
       />
+      <CSVImportButton uploadData={(data) => createData(dbName, data)} />
     </>
   );
 }
