@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
-import { getDataOnce, db } from "../../lib/firebase";
+import { db } from "../../lib/firebase";
 import decode from "../../utils/decode";
 
-import { DEFAULT_EVENT } from "../../constants/events";
+import { DEFAULT_EVENT } from "../../constants/dashboard";
 import EditableTable from "../../components/UI/EditableTable";
 
 const dbName = "events";
@@ -46,7 +46,6 @@ export default function Events({ events }) {
     { title: "Location", classes: "min-w-[10rem]", key: "location" },
     { title: "Image", classes: "min-w-[10rem]", key: "image" },
     { title: "Link", classes: "max-w-[30rem]", key: "link" },
-    { title: "Recording Link", classes: "max-w-[30rem]", key: "recording" },
   ];
 
   return (
@@ -59,4 +58,3 @@ export default function Events({ events }) {
     />
   );
 }
-

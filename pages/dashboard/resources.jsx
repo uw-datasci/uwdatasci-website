@@ -3,7 +3,7 @@ import { ref, onValue } from "firebase/database";
 import { getDataOnce, db } from "../../lib/firebase";
 import decode from "../../utils/decode";
 
-import { DEFAULT_RESOURCE } from "../../constants/resources";
+import { DEFAULT_RESOURCE } from "../../constants/dashboard";
 import EditableTable from "../../components/UI/EditableTable";
 
 const dbName = "resources";

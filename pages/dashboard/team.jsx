@@ -3,7 +3,7 @@ import { ref, onValue } from "firebase/database";
 import { createData, db } from "../../lib/firebase";
 import decode from "../../utils/decode";
 
-import { DEFAULT_MEMBER } from "../../constants/team";
+import { DEFAULT_MEMBER } from "../../constants/dashboard";
 import CSVImportButton from "../../components/UI/CSVImportButton";
 import EditableTable from "../../components/UI/EditableTable";
 

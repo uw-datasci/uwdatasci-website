@@ -32,7 +32,7 @@ export default function CSVImportButton({ uploadData }) {
 
   return (
     <div className="App">
-      <div className="border rounded-md p-10 ml-12 flex flex-col justify-start text-black dark:text-white">
+      <div className="border rounded-md p-10 ml-12 mr-12 flex flex-col justify-start text-black dark:text-white">
         <div className="mb-5 text-lg"><b>CSV Upload :)</b></div>
         <div className="mb-2">
           {"1. Choose a CSV file with the columns "}

@@ -1,6 +1,0 @@
-const DEFAULT_RESOURCE = {
-  title: "<RESOURCE TITLE>",
-  desc: "<RESOURCE DESCRIPTION>",
-  link: "<REGISTRATION LINK>",
-};
-export { DEFAULT_RESOURCE };

@@ -190,10 +190,13 @@ function EditableBox({ fieldName, fieldValue, editable, onChange }) {
         let id;
         if (fieldValue.includes("open")) {
           // https://drive.google.com/open?id=<id>
+          id = fieldValue.split("open?id=")[1];
         } else if (fieldValue.includes("view?usp=sharing")) {
-          // https://drive.google.com/file/d/1m3pn2eLa73uMBs54_5ay7x1r0XapFlQJ/view?usp=sharing
+          // https://drive.google.com/file/d/<id>/view?usp=sharing
+          const regex = /\/d\/(.*)\//;
+          id = url.match(regex)[1];
         }
-        return <img src={`https://drive.google.com/uc?export=view&id=${id}`} />;
+        return <img src={`https://drive.google.com/uc?export=view&id=${id}`} width="170px"/>;
       }
       return <img src={fieldValue} width="170px" />;
     } else if (fieldName === "time" && fieldValue.includes("TO")) {
