@@ -2,7 +2,6 @@ import { useState } from "react";
 import Papa from "papaparse";
 
 import Button from "./Button";
-import UploadIcon from "/public/img/icons/upload.svg";
 
 export default function CSVImportButton({ uploadData }) {
   const [csvFile, setCSVFile] = useState();
@@ -52,8 +51,6 @@ export default function CSVImportButton({ uploadData }) {
           bg="bg-white dark:bg-black"
           border="rounded-full border border-purple dark:border-lightPurple"
           py="py-2.5"
-          icon={UploadIcon}
-          iconAlt={"Upload icon"}
           iconClasses="no-select-or-drag w-6 absolute right-4 top-1/2 -translate-y-1/2 dark:filter-light-purple"
           classes="text-center w-1/4"
           onClick={importCSV}
