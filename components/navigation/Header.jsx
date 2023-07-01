@@ -6,6 +6,7 @@ import ThemeToggle from '../navigation/ThemeToggle';
 import GradientBorder from '../UI/GradientBorder';
 import Button from '../UI/Button';
 import { MENU } from '../../constants/menu';
+import Login from '../navigation/Login';
 
 export default function Header() {
   const menuOpenContext = useContext(MenuOpenContext);
@@ -61,6 +62,7 @@ export default function Header() {
           }
         })}
 
+        <Login /> 
         <ThemeToggle />
       </nav>
     </header>
