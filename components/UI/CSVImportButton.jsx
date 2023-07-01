@@ -2,7 +2,7 @@ import { useState } from "react";
 import Papa from "papaparse";
 
 import Button from "./Button";
-import UploadIcon from "../../public/img/icons/upload.svg";
+import UploadIcon from "/public/img/icons/upload.svg";
 
 export default function CSVImportButton({ uploadData }) {
   const [csvFile, setCSVFile] = useState();
