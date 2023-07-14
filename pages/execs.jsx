@@ -1,37 +1,30 @@
 import Footer from '../components/navigation/Footer';
-import { QrReader } from 'react-qr-reader';
+import Html5QrcodePlugin from './qr-scanner'
+import { useRouter } from 'next/router';
 
-export default function Prompt () {
+const Scanner = (props) => {
+  const router = useRouter();
+
+  const onNewScanResult = (decodedText, decodedResult) => {
+    // handle decoded results here
+    open(decodedResult);
+  };
+
   return (
     <>
-    <h1>Testing!!!!!</h1>
-    <Footer />
+      <div className="Scanner">
+        <Html5QrcodePlugin 
+          fps={10}
+          qrbox={250}
+          disableFlip={false}
+          qrCodeSuccessCallback={onNewScanResult}
+        />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   );
-}
-// for scanner 
-// export default function Test (props) {
-//     const [data, setData] = useState('No result');
-  
-//     return (
-//       <>
-//       <h1>Test!</h1>
-//         <QrReader
-//           onResult={(result, error) => {
-//             if (!!result) {
-//               setData(result?.text);
-//             }
-  
-//             if (!!error) {
-//               console.info(error);
-//             }
-//           }}
-//           style={{ width: '100%' }}
-//           constraints={{ facingMode: 'environment' }}
+};
 
-//         />
-//         <p>{data}</p>
-//         <Footer />
-//       </>
-//     );
-// };
+export default Scanner;

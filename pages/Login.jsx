@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { CookiesProvider } from 'react-cookie';
+import { useCookies } from 'react-cookie';
+import Button from '../components/UI/Button';
 
 export default function Login() {
   const [gsiScriptLoaded, setGsiScriptLoaded] = useState(false);
-  const [user, setUser] = useState(undefined);
+  const [cookie,  removeCookie] = useCookies(['valueName']);
+  const [user, setUser] = useState(undefined); 
   const router = useRouter();
 
   const handleCredentialResponse = async (response) => {
@@ -17,6 +21,8 @@ export default function Login() {
   const handleLogout = () => {
     localStorage.removeItem("loginState"); // Remove the stored login state
     setUser(undefined);
+    removeCookie('g_state');
+    router.push("/#")
   };
 
   useEffect(() => {
@@ -52,11 +58,16 @@ export default function Login() {
   const handleClick = () => {
     if (!user) {
       if (window.google && gsiScriptLoaded) {
+        removeCookie('g_state');
         window.google.accounts.id.prompt();
       }
-    } else {
-      handleLogout();
+    } 
+    else {
+      router.push("../execs");
     }
+    // else {
+    //   handleLogout();
+    // }
   };
 
   useEffect(() => {
@@ -66,11 +77,25 @@ export default function Login() {
   }, [user]);
 
   return (
-    <button
+    // <Button
+    //   bg="bg-white dark:bg-black"
+    //   border="rounded-full border border-purple dark:border-lightPurple"
+    //   py="py-2.5"
+    //   font="text-black dark:text-white"
+    //   icon=
+    //   iconAlt="open link"
+    //   iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
+    //   classes="text-center"
+    //   onClick={handleClick}
+    // >
+    //   QR Scanner
+    // </Button>
+      <button
       className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
       onClick={handleClick}
-    >
-      {user ? "Logout" : "Login"}
-    </button>
+      >
+        QR
+        {/* {user ? "Logout" : "Login"} */}
+      </button>
   );
 }

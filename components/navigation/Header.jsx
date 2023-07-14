@@ -6,7 +6,7 @@ import ThemeToggle from '../navigation/ThemeToggle';
 import GradientBorder from '../UI/GradientBorder';
 import Button from '../UI/Button';
 import { MENU } from '../../constants/menu';
-import Login from '../navigation/Login';
+import Login from '../../pages/Login';
 
 export default function Header() {
   const menuOpenContext = useContext(MenuOpenContext);

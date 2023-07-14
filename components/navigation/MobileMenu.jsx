@@ -4,6 +4,7 @@ import MenuOpenContext from '../../store/menu-open-context';
 import GradientBorder from '../UI/GradientBorder';
 import Button from '../UI/Button';
 import { MENU } from '../../constants/menu';
+import Login from '../../pages/Login';
 
 export default function MobileMenu() {
   const menuOpenContext = useContext(MenuOpenContext);
@@ -63,6 +64,7 @@ export default function MobileMenu() {
             );
           }
         })}
+        <Login />
       </div>
     </div>
   );
