@@ -10,23 +10,23 @@ export default function Events({ upcomingEvents, pastEvents, recordings }) {
   return (
     <>
       <SEO
-        title="Events | UWaterloo Data Science Club"
+        title='Events | UWaterloo Data Science Club'
         description="Interested in attending UWaterloo Data Science Club's events? Find a list of them here."
-        keywords=""
+        keywords=''
       />
-      <h1 className="mb-12 text-center md:mb-16 xl:mb-20">
-        <span className="h1">Events</span>
+      <h1 className='mb-12 text-center md:mb-16 xl:mb-20'>
+        <span className='h1'>Events</span>
       </h1>
       <CXCSponsors />
-      <UpcomingEventsCarousel fetchedUpcomingEvents={upcomingEvents} />
-      <RecordingsCarousel fetchedRecordings={recordings} />
-      <PastEventsCarousel fetchedPastEvents={pastEvents} />
+      <UpcomingEventsCarousel upcomingEvents={upcomingEvents} />
+      <RecordingsCarousel recordings={recordings} />
+      <PastEventsCarousel pastEvents={pastEvents} />
       <Footer />
     </>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const upcomingEvents = await getDataOnce('upcomingEvents');
   const pastEvents = await getDataOnce('pastEvents');
   const recordings = await getDataOnce('recordings');
@@ -37,6 +37,5 @@ export async function getStaticProps() {
       pastEvents,
       recordings,
     },
-    revalidate: 1,
   };
 }

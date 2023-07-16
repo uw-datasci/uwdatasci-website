@@ -8,19 +8,23 @@ import Footer from '../components/navigation/Footer';
 export default function Resources({ resources, recordings }) {
   return (
     <>
-      <SEO title="Resources | UWaterloo Data Science Club" description="Want to learn more about Data Science? Take a look at our resources here." keywords=""/>
-      <h1 className="mb-6 text-center md:mb-0">
-        <span className="h1">Resources</span>
+      <SEO
+        title='Resources | UWaterloo Data Science Club'
+        description='Want to learn more about Data Science? Take a look at our resources here.'
+        keywords=''
+      />
+      <h1 className='mb-6 text-center md:mb-0'>
+        <span className='h1'>Resources</span>
       </h1>
-      <ResourcesCarousel fetchedResources={resources} />
+      <ResourcesCarousel resources={resources} />
       {/* <Podcast /> */}
-      <RecordingsCarousel fetchedRecordings={recordings} />
+      <RecordingsCarousel recordings={recordings} />
       <Footer />
     </>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const resources = await getDataOnce('resources');
   const recordings = await getDataOnce('recordings');
 
@@ -29,6 +33,5 @@ export async function getStaticProps() {
       resources,
       recordings,
     },
-    revalidate: 1,
   };
 }

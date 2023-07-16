@@ -15,8 +15,14 @@ export function MenuOpenContextProvider({ children }) {
     setIsMenuOpen(false);
   }
 
+  function toggleMenu() {
+    setIsMenuOpen((prevState) => !prevState);
+  }
+
   return (
-    <MenuOpenContext.Provider value={{ isMenuOpen, openMenu, closeMenu }}>
+    <MenuOpenContext.Provider
+      value={{ isMenuOpen, openMenu, closeMenu, toggleMenu }}
+    >
       {children}
     </MenuOpenContext.Provider>
   );

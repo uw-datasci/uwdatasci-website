@@ -17,6 +17,7 @@ module.exports = {
       darkGreen: '#497763',
       red: '#F2A1A1',
       transparent: 'transparent',
+      yellow: '#efd351'
     },
     fontFamily: {
       sans: ['Manrope', 'sans'],
