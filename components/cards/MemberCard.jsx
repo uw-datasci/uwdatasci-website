@@ -6,11 +6,10 @@ import mailIcon from '../../public/img/icons/mail.svg';
 import websiteIcon from '../../public/img/icons/globe.svg';
 
 export default function MemberCard({ name, position, socials, image }) {
-
   return (
     <Card borderRadius='rounded-2xl md:rounded-4xl' classes='w-[290px]'>
       <div className='px-3 pt-7 pb-9 text-center'>
-        <Image
+        <img
           src={image}
           alt={name}
           className='no-select-or-drag mb-4 inline-block w-32 rounded-md'

@@ -21,11 +21,11 @@ export default function Team({ team }) {
 }
 
 export async function getServerSideProps() {
-  const team = await getDataOnce('team');
+  const team = await getDataOnce('people');
 
   return {
     props: {
-      team,
+      team: Object.values(team),
     },
   };
 }
