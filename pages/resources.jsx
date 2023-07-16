@@ -26,7 +26,7 @@ export default function Resources({ resources, recordings }) {
 
 export async function getServerSideProps() {
   const resources = await getDataOnce('resources');
-  const recordings = await getDataOnce('recordings');
+  const recordings = await getDataOnce('rerecording');
 
   return {
     props: {

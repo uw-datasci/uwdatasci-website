@@ -3,11 +3,12 @@ import UpcomingEventCard from '../cards/UpcomingEventCard';
 import ID from '../other/ID';
 
 export default function UpcomingEventsCarousel({ upcomingEvents }) {
-  return Array.isArray(upcomingEvents) && upcomingEvents.length > 0 ? (
+  if (!upcomingEvents || upcomingEvents === 'undefined') return null;
+  return (
     <section className='section relative '>
       <ID id='events' />
       <Carousel title='Future Events' gap='mr-6 lg:mr-8'>
-        {upcomingEvents.map((upcomingEvent) => (
+        {Object.values(upcomingEvents).map((upcomingEvent) => (
           <UpcomingEventCard
             title={upcomingEvent.title}
             description={upcomingEvent.description}
@@ -20,5 +21,5 @@ export default function UpcomingEventsCarousel({ upcomingEvents }) {
         ))}
       </Carousel>
     </section>
-  ) : null;
+  );
 }

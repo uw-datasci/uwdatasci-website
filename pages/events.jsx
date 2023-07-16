@@ -29,7 +29,7 @@ export default function Events({ upcomingEvents, pastEvents, recordings }) {
 export async function getServerSideProps() {
   const upcomingEvents = await getDataOnce('upcomingEvents');
   const pastEvents = await getDataOnce('pastEvents');
-  const recordings = await getDataOnce('recordings');
+  const recordings = await getDataOnce('rerecording');
 
   return {
     props: {

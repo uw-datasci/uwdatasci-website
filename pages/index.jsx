@@ -37,7 +37,7 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  const upcomingEvents = await getDataOnce('upcomingEvents');
+  const upcomingEvents = await getDataOnce('events');
   const pastEvents = await getDataOnce('pastEvents');
   const resources = await getDataOnce('resources');
   const officeStatus = await getDataOnce('officeStatus');

@@ -6,7 +6,7 @@ export default function ResourcesCarousel({ showTitle, resources }) {
     resources && (
       <section className='section'>
         <Carousel title={showTitle ? 'Resources' : ''} gap='mr-6 lg:mr-8'>
-          {resources.map((resource) => (
+          {Object.values(resources).map((resource) => (
             <ResourceCard
               title={resource.title}
               description={resource.description}
