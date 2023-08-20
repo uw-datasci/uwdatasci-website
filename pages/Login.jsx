@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { CookiesProvider } from 'react-cookie';
 import { useCookies } from 'react-cookie';
-import Button from '../components/UI/Button';
 
 export default function Login() {
   const [gsiScriptLoaded, setGsiScriptLoaded] = useState(false);
@@ -22,7 +20,7 @@ export default function Login() {
     localStorage.removeItem("loginState"); // Remove the stored login state
     setUser(undefined);
     removeCookie('g_state');
-    router.push("/#")
+    // router.push("/#")
   };
 
   useEffect(() => {
@@ -63,7 +61,7 @@ export default function Login() {
       }
     } 
     else {
-      router.push("../execs");
+      router.push("/execs");
     }
     // else {
     //   handleLogout();
@@ -77,25 +75,10 @@ export default function Login() {
   }, [user]);
 
   return (
-    // <Button
-    //   bg="bg-white dark:bg-black"
-    //   border="rounded-full border border-purple dark:border-lightPurple"
-    //   py="py-2.5"
-    //   font="text-black dark:text-white"
-    //   icon=
-    //   iconAlt="open link"
-    //   iconClasses="no-select-or-drag w-5 absolute right-4 top-1/2 -translate-y-1/2 filter-black dark:filter-light-purple"
-    //   classes="text-center"
-    //   onClick={handleClick}
-    // >
-    //   QR Scanner
-    // </Button>
       <button
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
       onClick={handleClick}
       >
         QR
-        {/* {user ? "Logout" : "Login"} */}
       </button>
   );
 }
